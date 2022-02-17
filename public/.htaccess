@@ -1,0 +1,11 @@
+# routing every thing trough index.php and making avery thing after domaine name stored in url GET super variable.
+
+
+<IfModule mod_rewrite.c>
+    Options -Multiviews
+    RewriteEngine On
+    RewriteBase /save_train_brief-5/public
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+</IfModule>
