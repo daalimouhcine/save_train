@@ -1,4 +1,4 @@
-# Go directly to the inside of the public folder.
+# Go directly to the public folder.
 
 <IfModule mod_rewrite.c>
     RewriteEngine on
