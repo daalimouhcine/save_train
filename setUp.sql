@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS train_booking;
+CREATE DATABASE IF NOT EXISTS saveTrain;
 
 CREATE TABLE IF NOT EXISTS admins(
     id int PRIMARY KEY AUTO_INCREMENT,
@@ -51,6 +51,7 @@ CREATE TABLE IF NOT EXISTS reservation_tickets(
     id_client int DEFAULT NULL,
     id_guest int DEFAULT NULL,
     FOREIGN KEY (id_trip) REFERENCES train_trips(id),
-    FOREIGN KEY (id_client) REFERENCES clients(id) DEFAULT null,
-    FOREIGN KEY (id_guest) REFERENCES guests(id) DEFAULT null
+    FOREIGN KEY (id_client) REFERENCES clients(id),
+    FOREIGN KEY (id_guest) REFERENCES guests(id)
 );
+
