@@ -7,7 +7,7 @@
     */
 
     class Core{
-        private $currentController = 'Pages';
+        private $currentController = 'Home';
         private $currentMethod = 'index';
         private $params = [];
 
