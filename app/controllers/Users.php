@@ -7,6 +7,7 @@
         }
 
         public function register() {
+            
             // Check for POST
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Sanitize POST data
@@ -85,6 +86,7 @@
         }
 
         public function login() {
+
             // Check for POST
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Sanitize POST data
