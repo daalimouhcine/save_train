@@ -12,7 +12,7 @@
         public function register($data) {
             $this->db->query("INSERT INTO clients(full_name, email, password) VALUES(:full_name, :email, :password)");
             // Bind values
-            $this->db->bind(':full_name', $data['name']);
+            $this->db->bind(':full_name', $data['full_name']);
             $this->db->bind(':email', $data['email']);
             $this->db->bind(':password', $data['password']);
 
