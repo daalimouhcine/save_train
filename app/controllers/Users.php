@@ -16,19 +16,19 @@
 
                 // Init data
                 $data = [
-                    'name' => $_POST['name'],
+                    'full_name' => $_POST['full_name'],
                     'email' => $_POST['email'],
                     'password' => $_POST['password'],
                     'confirm_password' => $_POST['confirm_password'],
-                    'name_err' => '',
+                    'full_name_err' => '',
                     'email_err' => '',
                     'password_err' => '',
                     'confirm_password_err' => ''
                 ];
 
                 // Validate name
-                if(empty($data['name'])) {
-                    $data['name_err'] = 'Pleas enter name';
+                if(empty($data['full_name'])) {
+                    $data['full_name_err'] = 'Pleas enter full_name';
                 }
 
                 // Validate Email
@@ -61,7 +61,11 @@
 
                 // Make sure that errors are empty
                 if(empty($data['name_err']) && empty($data['email_err']) && empty($data['password_err']) && empty($data['confirm_password_err'])) {
-                    echo 'SUCCESS';
+                    $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+
+                    if($this->userModel->register($data)) {
+                        echo 'Success';
+                    }
 
                 } else {
                     // Load view with errors
@@ -74,11 +78,11 @@
             } else {
                 // Init data
                 $data = [
-                    'name' => '',
+                    'full_name' => '',
                     'email' => '',
                     'password' => '',
                     'confirm_password' => '',
-                    'name_err' => '',
+                    'full_name_err' => '',
                     'email_err' => '',
                     'password_err' => '',
                     'confirm_password_err' => ''

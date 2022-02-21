@@ -7,9 +7,9 @@
                 <p>Please fill out this form to register with us</p>
                 <form action="<?= URLROOT; ?>/users/register" method="POST">
                     <div class="form-group">
-                        <label for="name">Name: <sup>*</sup></label>
-                        <input type="text" name='name' class="form-control form-control-lg <?= (!empty($data['name_err'])) ? 'is-invalid' : ''; ?>" value="<?= $data['name']; ?>" >
-                        <span class="invalid-feedback"><?= $data['name_err']; ?></span>
+                        <label for="full_name">Full Name: <sup>*</sup></label>
+                        <input type="text" name='full_name' class="form-control form-control-lg <?= (!empty($data['full_name_err'])) ? 'is-invalid' : ''; ?>" value="<?= $data['full_name']; ?>" >
+                        <span class="invalid-feedback"><?= $data['full_name_err']; ?></span>
                     </div>
                     <div class="form-group">
                         <label for="email">Email: <sup>*</sup></label>
