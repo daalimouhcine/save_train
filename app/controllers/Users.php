@@ -64,6 +64,7 @@
                     $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
                     if($this->userModel->register($data)) {
+                        flash('register_success', 'You are registered and can log in');
                         redirect('users/login');
                     }
 
@@ -119,6 +120,13 @@
                     $data['password_err'] = 'Pleas enter your password';
                 }
 
+                // Check for user/email
+                if($this->userModel->findUserByEmail($data['email'])) {
+                    // User found
+                } else {
+                    // User not found
+                    $data['email_err'] = 'No user found';
+                }
 
                 // Make sure that errors are empty
                 if(empty($data['email_err']) && empty($data['password_err'])) {
