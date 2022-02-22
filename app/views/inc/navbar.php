@@ -21,6 +21,15 @@
               <li class="nav-item">
                 <a class="nav-link" href="<?php echo URLROOT; ?>/users/logout">Logout</a>
               </li>
+
+            <?php elseif (isset($_SESSION['admin_id'])) : ?>
+              <li class="nav-item">
+                <a class="nav-link" href="<?php echo URLROOT; ?>/users/logout">Logout</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href=""><strong>Admine</strong></a>
+              </li>           
+               
             <?php else : ?>
               <li class="nav-item">
                 <a class="nav-link" href="<?php echo URLROOT; ?>/users/register">Register</a>
@@ -33,3 +42,4 @@
         </div>
       </div>
   </nav>
+  
