@@ -27,14 +27,14 @@
 
                 // Validate name
                 if(empty($data['full_name'])) {
-                    $data['full_name_err'] = 'Pleas enter full_name';
+                    $data['full_name_err'] = 'Pleas enter full name';
                 }
 
                 // Validate Email
                 if(empty($data['email'])) {
                     $data['email_err'] = 'Pleas enter email';
                 } else {
-                    if($this->userModel->findUserByEmail($data['email'])) {
+                    if($this->userModel->findUserByEmail($data['email'], 'clients') || $this->userModel->findUserByEmail($data['email'], 'admins')) {
                         $data['email_err'] = 'email is all ready taken';
                     }
                 }
@@ -119,7 +119,7 @@
                 }
 
                 // Check for user/email
-                if($this->userModel->findUserByEmail($data['email'])) {
+                if($this->userModel->findUserByEmail($data['email'], 'clients') || $this->userModel->findUserByEmail($data['email'], 'admins')) {
                     // User found
                 } else {
                     // User not found
@@ -129,16 +129,25 @@
                 // Make sure that errors are empty
                 if(empty($data['email_err']) && empty($data['password_err'])) {
                     // Validation 
-                    // Check and set logged in user
-                    $loggedInUser = $this->userModel->login($data['email'], $data['password']);
+                    // Check and set logged in admin
+                    $loggedInAdmin = $this->userModel->login($data['email'], $data['password'], 'admins');
 
-                    if($loggedInUser) {
-                        // Start session
-                        $this->createUserSession($loggedInUser);
+                    if($loggedInAdmin) {
+                        // Start session for admin
+                        $this->createUserSession($loggedInAdmin, 'admin');
 
                     } else {
-                        $data['password_err'] = 'Password not correct';
-                        $this->view('users/login', $data);
+                        // Check and set logged in client
+                        $loggedInClient = $this->userModel->login($data['email'], $data['password'], 'clients');
+
+                        if($loggedInClient) {
+                            // Start session for client
+                            $this->createUserSession($loggedInClient, 'client');
+
+                        } else {
+                            $data['password_err'] = 'Password not correct';
+                            $this->view('users/login', $data);
+                        }
                     }
 
                 } else {
@@ -163,10 +172,20 @@
         }
 
 
-        public function createUserSession($user) {
-            $_SESSION['user_id'] = $user->id;
-            $_SESSION['user_email'] = $user->email;
-            $_SESSION['user_full_name'] = $user->fullName;
+        public function createUserSession($user, $role) {
+            // Check if the login person is an admin
+            if($role == 'admin') {
+                // Session for admin
+                $_SESSION['admin_id'] = $user->id;
+                $_SESSION['admin_email'] = $user->email;
+                $_SESSION['admin_full_name'] = $user->fullName;
+
+            } elseif($role == 'client') {
+                // Session for client
+                $_SESSION['user_id'] = $user->id;
+                $_SESSION['user_email'] = $user->email;
+                $_SESSION['user_full_name'] = $user->fullName;
+            }
 
             redirect('pages/index');
         }
@@ -177,8 +196,16 @@
             unset($_SESSION['user_email']);
             unset($_SESSION['user_full_name']);
             session_destroy();
-            
+
             redirect('users/login');
+        }
+
+        public function isLoggedIn() {
+            if(isset($_SESSION['user_id'])) {
+                return true;
+            } else {
+                return false;
+            }
         }
 
     }
