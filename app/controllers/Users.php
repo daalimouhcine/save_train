@@ -155,8 +155,6 @@
                     $this->view('users/login', $data);
 
                 }
-
-
             } else {
                 // Init data
                 $data = [
@@ -182,9 +180,9 @@
 
             } elseif($role == 'client') {
                 // Session for client
-                $_SESSION['user_id'] = $user->id;
-                $_SESSION['user_email'] = $user->email;
-                $_SESSION['user_full_name'] = $user->fullName;
+                $_SESSION['client_id'] = $user->id;
+                $_SESSION['client_email'] = $user->email;
+                $_SESSION['client_full_name'] = $user->fullName;
             }
 
             redirect('pages/index');
@@ -192,9 +190,17 @@
 
 
         public function logout() {
-            unset($_SESSION['user_id']);
-            unset($_SESSION['user_email']);
-            unset($_SESSION['user_full_name']);
+            if(isset($_SESSION['admin_id'])) {
+                unset($_SESSION['client_id']);
+                unset($_SESSION['client_email']);
+                unset($_SESSION['client_full_name']);
+
+            } elseif(isset($_SESSION['client_id'])) {
+                unset($_SESSION['client_id']);
+                unset($_SESSION['client_email']);
+                unset($_SESSION['client_full_name']);
+
+            }
             session_destroy();
 
             redirect('users/login');
