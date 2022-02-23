@@ -1,11 +1,12 @@
 <?php
+
     class User{
         private $db;
 
         public function __construct() {
             $this->db = new Database;
-
         }
+
 
         // Login User
         public function login($email, $password, $table) {
@@ -22,6 +23,7 @@
             }
         }
 
+
         // Register user
         public function register($data) {
             $this->db->query("INSERT INTO clients(full_name, email, password) VALUES(:full_name, :email, :password)");
@@ -37,6 +39,7 @@
             }
         }
 
+        
         // Find user by email
         public function findUserByEmail($email, $table) {
             $this->db->query('SELECT * FROM ' . $table . ' WHERE email = :email');
