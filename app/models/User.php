@@ -7,6 +7,20 @@
 
         }
 
+        // Login User
+        public function login($email, $password, $table) {
+            $this->db->query('SELECT * FROM ' . $table . ' WHERE email = :email');
+            $this->db->bind(':email', $email);
+
+            $row = $this->db->single();
+
+            $hashed_password = $row->password;
+            if(password_verify($password, $hashed_password)){
+              return $row;
+            } else {
+              return false;
+            }
+        }
 
         // Register user
         public function register($data) {
@@ -24,8 +38,8 @@
         }
 
         // Find user by email
-        public function findUserByEmail($email) {
-            $this->db->query('SELECT * FROM clients WHERE email = :email');
+        public function findUserByEmail($email, $table) {
+            $this->db->query('SELECT * FROM ' . $table . ' WHERE email = :email');
             // Bind value
             $this->db->bind(':email', $email);
 
