@@ -33,14 +33,14 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="<?= URLROOT; ?>">
                   <span data-feather="bar-chart-2"></span>
                   <i class="fa fa-user"></i>
                   Clients
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="<?= URLROOT; ?>">
                   <span data-feather="layers"></span>
                   <i class="fas fa-archive"></i>
                   Archived
