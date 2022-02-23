@@ -7,6 +7,7 @@
 
         }
 
+
         public function register() {
             // Check for POST
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -93,6 +94,7 @@
             }
             
         }
+
 
         public function login() {
             // Check for POST
@@ -206,6 +208,7 @@
             redirect('users/login');
         }
 
+        
         public function isLoggedIn() {
             if(isset($_SESSION['user_id'])) {
                 return true;
