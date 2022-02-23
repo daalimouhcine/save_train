@@ -19,14 +19,14 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="<?= URLROOT; ?>">
                   <span data-feather="shopping-cart"></span>
                   <i class="fa fa-suitcase"></i>
                   Trips
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="<?= URLROOT; ?>">
                   <span data-feather="users"></span>
                   <i class="fa fa-ticket"></i>
                   Reservations
