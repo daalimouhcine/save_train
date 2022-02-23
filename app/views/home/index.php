@@ -1,4 +1,5 @@
 <?php require_once APPROOT . '/views/inc/header.php';?>
+
   <?php if(isset($_SESSION['admin_id'])) : ?> 
     <div class="container-fluid">
       <div class="row">
