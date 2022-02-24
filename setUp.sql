@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS guests(
 
 CREATE TABLE IF NOT EXISTS trains(
     id int PRIMARY KEY AUTO_INCREMENT,
-    train_type varchar(255) NOT NULL,
+    name varchar(255) NOT NULL,
     seat_number int NOT NULL
 );
 
