@@ -6,17 +6,18 @@
         }
 
         public function index() {
-            // $trains = $this->trainModel->readTrains();
-            // if($trains) {
-            //     echo $trains;
+            $trains = $this->trainModel->readTrains();
+            if($trains) {
+                $this->view('trains/index', $trains);
+                // die(print_r($trains));
 
-            // } else {
-
-            // }
-            $data = [
-                'title' => 'trains index'
-            ];
-            $this->view('trains/index', $data);
+            } else {
+                $this->view('trains/index');
+                // flash('no_trains', 'Their is no trains pleas add some one', 'alert alert-danger');
+                
+            }
+            
+            
 
 
         }
@@ -70,13 +71,10 @@
                 ];
                 // Load View
                 $this->view('trains/add', $data);
-            }
-            
-
-            
-
-            
+            }           
         }
+
+
 
 
     }

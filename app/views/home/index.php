@@ -62,8 +62,8 @@
                   <div class="card-body">
                     <h5 class="card-title">Trains</h5>
                     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">See Trains</a>
-                    <a href="#" class="btn btn-success">Add Train</a>
+                    <a href="<?= URLROOT; ?>/trains/index" class="btn btn-primary">See Trains</a>
+                    <a href="<?= URLROOT; ?>/trains/add" class="btn btn-success">Add Train</a>
                   </div>
                 </div>
               </div>

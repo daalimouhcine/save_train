@@ -7,17 +7,17 @@
 
         }
 
-        // public function readTrains() {
-        //     $this->db->trainMethod->query('SELECT * FROM trains');
-        //     $trains = $this->db->trainMethod->execute();
-        //     $row = $this->db->rowCount();
+        public function readTrains() {
+            $this->db->query('SELECT * FROM trains');
+            $trains = $this->db->resultSet();
+            $row = $this->db->rowCount();
 
-        //     if($row) {
-        //         return $trains;
-        //     } else {
-        //         return false;
-        //     }
-        // }
+            if($row > 0) {
+                return $trains;
+            } else {
+                return false;
+            }
+        }
 
 
         public function addTrain($data) {
