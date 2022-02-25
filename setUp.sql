@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS reservation_tickets(
 
 
 INSERT INTO `admins`(`fullName`, `email`, `password`) 
-        VALUES ('mouhcine daali','admine@savetrain.com','admine');
+        VALUES ('mouhcine daali','admin@savetrain.com','$2y$10$Y2LUd3kM4iqsOBwLA5U23OKU5kbROTq5CVmypCAg9.sdd.ho7gslW');
 
 INSERT INTO `clients`(`fullName`, `email`, `password`, `phoneNumber`, `birthDay`) 
         VALUES ('abdsalam staili','abdsalam@gmail.com','abdsalamstaili','0634175255','2003/02/15');
