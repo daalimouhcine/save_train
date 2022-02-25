@@ -5,6 +5,7 @@
             $this->trainModel = $this->model('Train');
         }
 
+
         public function index() {
             $trains = $this->trainModel->readTrains();
             if($trains) {
@@ -13,14 +14,12 @@
 
             } else {
                 $this->view('trains/index');
-                // flash('no_trains', 'Their is no trains pleas add some one', 'alert alert-danger');
+                flash('no_trains', 'Their is no trains pleas add some one', 'alert alert-danger');
                 
             }
-            
-            
-
 
         }
+
 
         public function add() {
             // Check for POST
@@ -75,6 +74,20 @@
         }
 
 
+        public function editTrain($trainId) {
+
+        }
+
+
+        public function delete($trainId) {
+            if($this->trainModel->deleteTrain($trainId)) {
+                flash('train_delete_success', 'Train deleted successfully');
+                redirect("trains/index");
+            } else {
+                flash('delete_prob', 'Their is some problem pleas try again', 'alert alert-danger');
+                $this->view('trains/index');
+            }
+        }
 
 
     }

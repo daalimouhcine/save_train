@@ -31,4 +31,15 @@
                 return false;
             }
         }
+
+
+        public function deleteTrain($trainId) {
+            $this->db->query('DELETE FROM trains WHERE id = :id');
+            $this->db->bind(':id', $trainId);
+            if($this->db->execute()) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
