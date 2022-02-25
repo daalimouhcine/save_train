@@ -85,7 +85,7 @@
                 redirect("trains/index");
             } else {
                 flash('delete_prob', 'Their is some problem pleas try again', 'alert alert-danger');
-                $this->view('trains/index');
+                redirect("trains/index");
             }
         }
 
