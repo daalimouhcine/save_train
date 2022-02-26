@@ -58,6 +58,15 @@
 
 
         public function modifyTrain($trainId, $inputName, $inputSeatNumber) {
-            
+            $this->db->query('UPDATE trains SET name = :name, seatNumber = :seatNumber WHERE id = :id');
+            $this->db->bind(':name', $inputName);
+            $this->db->bind(':seatNumber', $inputSeatNumber);
+            $this->db->bind(':id', $trainId);
+
+            if($this->db->execute()) {
+                return true;
+            } else {
+                return false;
+            }
         }
     }
