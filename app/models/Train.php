@@ -55,4 +55,9 @@
                 return false;
             }
         }
+
+
+        public function modifyTrain($trainId, $inputName, $inputSeatNumber) {
+            
+        }
     }
