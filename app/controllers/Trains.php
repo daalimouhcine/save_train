@@ -53,7 +53,7 @@
                 if(empty($data['name_err']) && empty($data['seat_number_err'])) {
                     if($this->trainModel->addTrain($data)) {
                         flash('train_add_success', 'Train add successfully');
-                        redirect('trains/index');
+                        redirect('trains/');
                     }
 
                 } else {
@@ -101,11 +101,11 @@
                 if(empty($data['name_err']) && empty($data['seat_number_err'])) {
                     if($this->trainModel->modifyTrain($trainId, $data['name'], $data['seat_number'])) {
                         flash('modify_train', 'the train is modified successfully');
-                        redirect('trains/index');                    
+                        redirect('trains/');                    
 
                     } else {
                         flash('err', 'their is an error pleas try again');
-                        redirect('trains/index'); 
+                        redirect('trains/'); 
                     }
 
                 } else {
@@ -132,10 +132,10 @@
         public function delete($trainId) {
             if($this->trainModel->deleteTrain($trainId)) {
                 flash('train_delete_success', 'Train deleted successfully');
-                redirect("trains/index");
+                redirect("trains/");
             } else {
                 flash('delete_prob', 'Their is some problem pleas try again', 'alert alert-danger');
-                redirect("trains/index");
+                redirect("trains/");
             }
         }
 
