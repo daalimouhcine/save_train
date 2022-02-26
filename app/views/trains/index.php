@@ -75,11 +75,11 @@
               <tbody>
                 <?php foreach($data as $train) : ?>
                   <tr>
-                    <td class="w-25 px-5"><?= $train['name']; ?></td>
-                    <td class="w-25"><?= $train['seat_number']; ?></td>
+                    <td class="w-25 px-5"><?= $train->name; ?></td>
+                    <td class="w-25"><?= $train->seat_number; ?></td>
                     <td class="w-25">
-                      <a href="<?= URLROOT; ?>/trains/edit/<?= $train['id']; ?>" class="btn btn-outline-success">Edit</a>
-                      <a href="<?= URLROOT; ?>/trains/delete/<?= $train['id']; ?>" class="btn btn-outline-danger">Delete</a>
+                      <a href="<?= URLROOT; ?>/trains/edit/<?= $train->id; ?>" class="btn btn-outline-success">Edit</a>
+                      <a href="<?= URLROOT; ?>/trains/delete/<?= $train->id; ?>" class="btn btn-outline-danger">Delete</a>
                     </td>
                   </tr>
                 <?php endforeach; ?>
