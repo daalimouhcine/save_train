@@ -7,13 +7,13 @@
           <div class="sidebar-sticky pt-3">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="#">
+                <a class="nav-link active" href="<?= URLROOT; ?>">
                   <span data-feather="home"></span>
                   Dashboard <span class="sr-only">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<?= URLROOT; ?>">
+                <a class="nav-link" href="<?= URLROOT; ?>/trains">
                   <span data-feather="file"></span>
                   <i class="fas fa-subway"></i>
                   Trains
@@ -62,7 +62,7 @@
                   <div class="card-body">
                     <h5 class="card-title">Trains</h5>
                     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="<?= URLROOT; ?>/trains/index" class="btn btn-primary">See Trains</a>
+                    <a href="<?= URLROOT; ?>/trains/" class="btn btn-primary">See Trains</a>
                     <a href="<?= URLROOT; ?>/trains/add" class="btn btn-success">Add Train</a>
                   </div>
                 </div>
