@@ -59,6 +59,8 @@
           <?php flash('no_trains'); ?>
           <?php flash('train_delete_success'); ?>
           <?php flash('delete_prob'); ?>
+          <?php flash('modify_train'); ?>
+          <?php flash('err'); ?>
           <div class="btn-toolbar mb-2 mb-md-0">
             <a href="<?= URLROOT; ?>/trains/add" type="button" class="btn  btn-success">Add Train</a>
         </div>
