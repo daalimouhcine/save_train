@@ -84,13 +84,13 @@
                 ];
 
                 // Validate name
-                if(empty($_POST['name'])) {
+                if(empty($data['name'])) {
                     $data['name_err'] = 'Pleas enter a name';
                 }
 
                 // Validate seat_number
-                if(empty($_POST['seat_number'])) {
-                    $data['seat_number'] = 'Pleas enter seats number';
+                if(empty($data['seat_number'])) {
+                    $data['seat_number_err'] = 'Pleas enter seats number';
 
                 } elseif($data['seat_number'] <= 0) {
                     $data['seat_number_err'] = "( $data[seat_number] ) is not a valid number";
@@ -98,8 +98,8 @@
                 
 
                 // Make sure that errors are empty
-                if(empty($_POST['name_err']) && empty($_POST['seat_number_err'])) {
-                    if($this->trainMethod->modifyTrain($trainId, $data['name'], $data['seat_number'])) {
+                if(empty($data['name_err']) && empty($data['seat_number_err'])) {
+                    if($this->trainModel->modifyTrain($trainId, $data['name'], $data['seat_number'])) {
                         flash('modify_train', 'the train is modified successfully');
                         redirect('trains/index');                    
 
