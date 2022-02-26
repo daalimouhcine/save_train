@@ -20,6 +20,19 @@
         }
 
 
+        public function getOneTrain($trainId) {
+            $this->db->query('SELECT * FROM trains WHERE id = :id');
+            $this->db->bind(':id', $trainId);
+            $row = $this->db->single();
+
+            if($this->db->rowCount() > 0) {
+                return $row;
+            } else {
+                return false;
+            }
+        }
+
+
         public function addTrain($data) {
             $this->db->query("INSERT INTO trains(name, seat_number) VALUES(:name, :seat_number)");
             $this->db->bind(':name', $data['name']);
