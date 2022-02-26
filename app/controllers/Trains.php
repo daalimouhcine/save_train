@@ -74,8 +74,53 @@
         }
 
 
-        public function editTrain($trainId) {
+        public function edit($trainId) {
+            if($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $data = [
+                    'name' => $_POST['name'],
+                    'seat_number' => $_POST['seat_number'],
+                    'name_err' => '',
+                    'seat_number_err' => ''
+                ];
 
+                // Validate name
+                if(empty($_POST['name'])) {
+                    $data['name_err'] = 'Pleas enter a name';
+                }
+
+                // Validate seat_number
+                if(empty($_POST['seat_number'])) {
+                    $data['seat_number'] = 'Pleas enter seats number';
+
+                } elseif($data['seat_number'] <= 0) {
+                    $data['seat_number_err'] = "( $data[seat_number] ) is not a valid number";
+                }
+                
+
+                // Make sure that errors are empty
+                if(empty($_POST['name_err']) && empty($_POST['seat_number_err'])) {
+                    $this->trainMethod->modifyTrain($trainId, $data['name'], $data['seat_number']);
+                    
+                    
+
+                } else {
+                    $this->view('trains/modify', $data);
+                }
+
+
+            } else {
+                $row = $this->trainModel->getOneTrain($trainId);
+                
+                $data = [
+                    'name' => $row->name,
+                    'seat_number' => $row->seat_number,
+                    'name_err' => '',
+                    'seat_number_err' => ''
+                ];
+                
+                $this->view("trains/modify", $data);
+                
+            }
         }
 
 
