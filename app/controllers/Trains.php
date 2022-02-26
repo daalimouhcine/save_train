@@ -100,8 +100,8 @@
                 // Make sure that errors are empty
                 if(empty($_POST['name_err']) && empty($_POST['seat_number_err'])) {
                     $this->trainMethod->modifyTrain($trainId, $data['name'], $data['seat_number']);
-                    
-                    
+                    flash('modify_train', 'the train is modified successfully');
+                    redirect('trains/index');                    
 
                 } else {
                     $this->view('trains/modify', $data);
