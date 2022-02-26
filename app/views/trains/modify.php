@@ -61,7 +61,7 @@
         <div class="row">
           <div class="col-md-6 mx-auto">
               <div class="card card-body bg-light mt-5">
-                  <form action="<?= URLROOT; ?>/trains/edit" method="POST">
+                  <form method="POST">
                       <div class="form-group">
                           <label for="name">Name <sup>*</sup></label>
                           <input type="text" name="name" class="form-control form-control-lg <?= (!empty($data['name_err'])) ? 'is-invalid' : ''; ?>" value="<?= $data['name']; ?>" >
