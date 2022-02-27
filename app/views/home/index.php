@@ -21,7 +21,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<?= URLROOT; ?>">
+                <a class="nav-link" href="<?= URLROOT; ?>/trips">
                   <span data-feather="shopping-cart"></span>
                   <i class="fa fa-suitcase"></i>
                   Trips
@@ -73,8 +73,8 @@
                   <div class="card-body">
                     <h5 class="card-title">Train Trips available</h5>
                     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">See Trips available</a>
-                    <a href="#" class="btn btn-success">Add Train Trip</a>
+                    <a href="<?= URLROOT; ?>/trips" class="btn btn-primary">See Trips available</a>
+                    <a href="<?= URLROOT; ?>/trips/add" class="btn btn-success">Add Train Trip</a>
                   </div>
                 </div>
               </div>

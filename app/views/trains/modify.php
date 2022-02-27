@@ -20,7 +20,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<?= URLROOT; ?>">
+                <a class="nav-link" href="<?= URLROOT; ?>/trips">
                   <span data-feather="shopping-cart"></span>
                   <i class="fa fa-suitcase"></i>
                   Trips
