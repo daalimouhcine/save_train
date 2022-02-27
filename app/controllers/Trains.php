@@ -10,7 +10,6 @@
             $trains = $this->trainModel->readTrains();
             if($trains) {
                 $this->view('trains/index', $trains);
-                // die(print_r($trains));
 
             } else {
                 $this->view('trains/index');
