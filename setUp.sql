@@ -35,7 +35,6 @@ CREATE TABLE IF NOT EXISTS train_trips(
     end_in varchar(255) NOT NULL,
     distance int,
     trip_date int NOT NULL,
-    trip_time int NOT NULL,
     depart_hour int NOT NULL,
     end_hour int NOT NULL,
     class varchar(255) NOT NULL,
@@ -69,6 +68,6 @@ INSERT INTO `reservation_tickets`(`id_trip`, `id_client`, `id_guest`)
 INSERT INTO `trains`(`train_type`, `seat_number`) 
         VALUES ('train_type','50');
 
-INSERT INTO `train_trips`(`train_id`, `start_from`, `end_in`, `distance`, `trip_date`, `trip_time`, `depart_hour`, `end_hour`, `class`, `price`) 
-        VALUES ('train_id','start_from','end_in','distance','trip_date','trip_time','depart_hour','end_hour','class','price');
+INSERT INTO `train_trips`(`train_id`, `start_from`, `end_in`, `distance`, `trip_date`, `depart_hour`, `end_hour`, `class`, `price`) 
+        VALUES ('train_id','start_from','end_in','distance','trip_date','depart_hour','end_hour','class','price');
 
