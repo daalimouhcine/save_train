@@ -55,7 +55,7 @@
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <a href="<?= URLROOT; ?>/trains" type="button" class="btn btn-sm btn-outline-secondary">&leftarrow; View Trains</a>
+          <a href="<?= URLROOT; ?>/trains" type="button" class="btn btn-sm btn-outline-secondary">&leftarrow; View Trips</a>
           <h1 class="h2 mx-auto">Add Train Trip</h1>
         </div>
           
@@ -63,25 +63,87 @@
           <div class="col-md-6 mx-auto">
               <div class="card card-body bg-light mt-5">
                   <form action="<?= URLROOT; ?>/trains/add" method="POST">
-                      <div class="form-group">
-                          <label for="name">Name <sup>*</sup></label>
-                          <input type="text" name="name" class="form-control form-control-lg <?= (!empty($data['name_err'])) ? 'is-invalid' : ''; ?>" value="<?= $data['name']; ?>" >
-                          <span class="invalid-feedback"><?= $data['name_err']; ?></span>
+
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text" for="train">Train:</label>
                       </div>
+                      <select class="custom-select <?= (!empty($data['train_err'])) ? 'is-invalid' : ''; ?>" id="inputGroupSelect01">
+                        <?php if(!empty($data['train'])) : ?>
+                          <option value="<?= $data['train']; ?>" selected><?= $data['train']; ?></option>
+                          <?php foreach($data['trains_available'] as $train) : ?>
+                            <?php if($train->name != $data['train']) : ?>
+                              <option value="<?= $train->name; ?>"><?= $train->name; ?></option>
+                            <?php endif; ?>
+                          <?php endforeach; ?>
+
+                        <?php else : ?>
+                          <option selected>Choose...</option>
+                          <?php foreach($data['trains_available'] as $train) : ?>
+                            <option value="<?= $train->name; ?>"><?= $train->name; ?></option>
+                          <?php endforeach; ?>
+                        <?php endif; ?>
+                      </select>
+                      <span class="invalid-feedback"><?= $data['train_err']; ?></span>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label for="start_from">Start From:</label>
+                            <input type="text" name="start_from" class="form-control form-control-lg <?= (!empty($data['start_from_err'])) ? 'is-invalid' : ''; ?>" value="<?= $data['start_from']; ?>" >
+                            <span class="invalid-feedback"><?= $data['start_from_err']; ?></span>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="end_in">End In:</label>
+                            <input type="text" name="end_in" class="form-control form-control-lg <?= (!empty($data['end_in_err'])) ? 'is-invalid' : ''; ?>" value="<?= $data['end_in']; ?>" >
+                            <span class="invalid-feedback"><?= $data['end_in_err']; ?></span>
+                        </div>
+                    </div>
+
                       <div class="form-group">
-                          <label for="name">Name <sup>*</sup></label>
-                          <input type="text" name="name" class="form-control form-control-lg <?= (!empty($data['name_err'])) ? 'is-invalid' : ''; ?>" value="<?= $data['name']; ?>" >
-                          <span class="invalid-feedback"><?= $data['name_err']; ?></span>
+                          <label for="distance">Distance:</label>
+                          <input type="number" name="distance" class="form-control form-control-lg <?= (!empty($data['distance_err'])) ? 'is-invalid' : ''; ?>" value="<?= $data['distance']; ?>" >
+                          <span class="invalid-feedback"><?= $data['distance_err']; ?></span>
                       </div>
+
                       <div class="form-group">
-                          <label for="name">Name <sup>*</sup></label>
-                          <input type="text" name="name" class="form-control form-control-lg <?= (!empty($data['name_err'])) ? 'is-invalid' : ''; ?>" value="<?= $data['name']; ?>" >
-                          <span class="invalid-feedback"><?= $data['name_err']; ?></span>
+                          <label for="trip_date">Trip Date:</label>
+                          <input type="date" name="trip_date" class="form-control form-control-lg <?= (!empty($data['trip_date_err'])) ? 'is-invalid' : ''; ?>" value="<?= $data['trip_date']; ?>" >
+                          <span class="invalid-feedback"><?= $data['trip_date_err']; ?></span>
                       </div>
+                      
+                      <div class="row">
+                        <div class="form-group col-6">
+                            <label for="depart_hour">Depart Hour:</label>
+                            <input type="time" name="depart_hour" class="form-control form-control-lg <?= (!empty($data['depart_hour_err'])) ? 'is-invalid' : ''; ?>" value="<?= $data['depart_hour']; ?>" >
+                            <span class="invalid-feedback"><?= $data['depart_hour_err']; ?></span>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="end_hour">End Hour:</label>
+                            <input type="time" name="end_hour" class="form-control form-control-lg <?= (!empty($data['end_hour_err'])) ? 'is-invalid' : ''; ?>" value="<?= $data['end_hour']; ?>" >
+                            <span class="invalid-feedback"><?= $data['end_hour_err']; ?></span>
+                        </div>
+                      </div>
+
                       <div class="form-group">
-                          <label for="seat_number">Seat Number: <sup>*</sup></label>
-                          <input type="number" name="seat_number" class="form-control form-control-lg <?= (!empty($data['seat_number_err'])) ? 'is-invalid' : ''; ?>" value="<?= $data['seat_number']; ?>" >
-                          <span class="invalid-feedback"><?= $data['seat_number_err']; ?></span>
+                          <label for="classes">Classes:</label>
+                          <div class="row ml-5">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="checkbox" id="economic" value="option1">
+                              <label class="form-check-label" for="economic">Economic</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="checkbox" id="business" value="option2">
+                              <label class="form-check-label" for="business">Business</label>
+                            </div>
+                          </div>
+                          <span class="invalid-feedback"><?= $data['class_err']; ?></span>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="price">Price:</label>
+                        <input type="number" name="price" class="form-control form-control-lg <?= (!empty($data['price_err'])) ? 'is-invalid' : ''; ?>" value="<?= $data['price']; ?>" >
+                        <span class="invalid-feedback"><?= $data['price_err']; ?></span>
                       </div>
 
                       <div class="row">
@@ -89,6 +151,7 @@
                               <input type="submit" class="btn btn-success btn-block" value="Add">
                           </div>
                       </div>
+
                   </form>
                 </div>
             </div>
