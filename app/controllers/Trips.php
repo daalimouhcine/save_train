@@ -3,6 +3,7 @@
 
         public function __construct() {
             // $this->tripModel = $this->model('Trip');
+            $this->trainModel = $this->model('Train');
         }
 
 
@@ -18,14 +19,16 @@
 
 
             } else {
+                // Get the trains
+                $trains = $this->trainModel->readTrains();
                 // Init data
                 $data = [
+                    'trains_available' => $trains,
                     'train' => '',
                     'start_from' => '',
                     'end_in' => '',
                     'distance' => '',
                     'trip_date' => '',
-                    'trip_time' => '',
                     'depart_hour' => '',
                     'end_hour' => '',
                     'class' => '',
@@ -35,7 +38,6 @@
                     'end_in_err' => '',
                     'distance_err' => '',
                     'trip_date_err' => '',
-                    'trip_time_err' => '',
                     'depart_hour_err' => '',
                     'end_hour_err' => '',
                     'class_err' => '',
