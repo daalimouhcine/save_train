@@ -38,6 +38,7 @@ CREATE TABLE IF NOT EXISTS train_trips(
     depart_hour varchar(255) NOT NULL,
     end_hour varchar(255) NOT NULL,
     price double NOT NULL,
+    available bool DEFAULT(true),
     FOREIGN KEY (train_id) REFERENCES trains(id)
 );
 
