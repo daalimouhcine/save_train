@@ -133,7 +133,7 @@
                 flash('train_delete_success', 'Train deleted successfully');
                 redirect("trains/");
             } else {
-                flash('delete_prob', 'Their is some problem pleas try again', 'alert alert-danger');
+                flash('delete_prob', "You can't delete this train their is a trip related with it", 'alert alert-danger');
                 redirect("trains/");
             }
         }
