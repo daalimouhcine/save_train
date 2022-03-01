@@ -255,4 +255,12 @@
 
             }
         }
+
+
+        public function archive($trip_id) {
+            if($this->tripModel->archiveTrip($trip_id)) {
+                flash('archive_trip', 'the trip is archived');
+                redirect('trips/');
+            }
+        }
     }
