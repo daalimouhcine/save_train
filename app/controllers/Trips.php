@@ -2,13 +2,13 @@
     class Trips extends Controller {
 
         public function __construct() {
-            // $this->tripModel = $this->model('Trip');
+            $this->tripModel = $this->model('Trip');
             $this->trainModel = $this->model('Train');
         }
 
 
         public function index() {
-
+            $this->view('trips/index');
 
         }
 
@@ -20,11 +20,12 @@
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Sanitize POST
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
+                $row = $this->trainModel->getOneTrain($_POST['train']);
                 // Init data
                 $data = [
                     'trains_available' => $trains,
-                    'train' => $_POST['train'],
+                    'train_name' => $row->name,
+                    'train_id' => $_POST['train'],
                     'start_from' => $_POST['start_from'],
                     'end_in' => $_POST['end_in'],
                     'distance' => $_POST['distance'],
@@ -43,7 +44,7 @@
                 ];
 
                 // Validate train
-                if(empty($data['train'])) {
+                if(empty($data['train_name']) || empty($data['train_id'])) {
                     $data['train_err'] = 'Pleas select a train';
                 }
 
@@ -91,7 +92,10 @@
 
                 // Mack sure all errors arr empty
                 if(empty($data['train_err']) && empty($data['start_from_err']) && empty($data['end_in_err']) && empty($data['distance_err']) && empty($data['trip_date_err']) && empty($data['depart_hour_err']) && empty($data['end_hour_err']) && empty($data['price_err'])) {
-                    
+                    if($this->tripModel->addTrip($data)) {
+                        flash('trip_add_success', 'Trip added successfully');
+                        redirect('trips/');
+                    }
                     
                 } else {
                     $this->view('trips/add', $data);
