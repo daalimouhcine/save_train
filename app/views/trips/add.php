@@ -69,18 +69,18 @@
                         <label class="input-group-text" for="train">Train:</label>
                       </div>
                       <select class="custom-select <?= (!empty($data['train_err'])) ? 'is-invalid' : ''; ?>" name="train" id="train">
-                        <?php if(!empty($data['train'])) : ?>
-                          <option value="<?= $data['train']; ?>" selected><?= $data['train']; ?></option>
+                        <?php if(!empty($data['train_name'])) : ?>
+                          <option value="<?= $data['train_id']; ?>" selected><?= $data['train_name']; ?></option>
                           <?php foreach($data['trains_available'] as $train) : ?>
-                            <?php if($train->name != $data['train']) : ?>
-                              <option value="<?= $train->name; ?>"><?= $train->name; ?></option>
+                            <?php if($train->name != $data['train_name']) : ?>
+                              <option value="<?= $train->id; ?>"><?= $train->name; ?></option>
                             <?php endif; ?>
                           <?php endforeach; ?>
 
                         <?php else : ?>
                           <option selected></option>
                           <?php foreach($data['trains_available'] as $train) : ?>
-                            <option value="<?= $train->name; ?>"><?= $train->name; ?></option>
+                            <option value="<?= $train->id; ?>"><?= $train->name; ?></option>
                           <?php endforeach; ?>
                         <?php endif; ?>
                       </select>
@@ -101,7 +101,7 @@
                     </div>
 
                       <div class="form-group">
-                          <label for="distance">Distance:</label>
+                          <label for="distance">Distance <small>( KM )</small> :</label>
                           <input type="number" name="distance" class="form-control form-control-lg <?= (!empty($data['distance_err'])) ? 'is-invalid' : ''; ?>" value="<?= $data['distance']; ?>" >
                           <span class="invalid-feedback"><?= $data['distance_err']; ?></span>
                       </div>
