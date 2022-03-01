@@ -6,6 +6,19 @@
             $this->db = new Database;
         }
 
+        
+        public function readTrips() {
+            $this->db->query("SELECT trains.name, train_trips.* FROM train_trips INNER JOIN trains ON train_trips.train_id = trains.id");
+            $trips = $this->db->resultSet();
+            $row = $this->db->rowCount();
+
+            if($row > 0) {
+                return $trips;
+            } else {
+                return false;
+            }
+        }
+
 
         public function addTrip($data) {
             // Prepare the query
