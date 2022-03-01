@@ -41,7 +41,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<?= URLROOT; ?>">
+                <a class="nav-link" href="<?= URLROOT; ?>/trips/archived">
                   <span data-feather="layers"></span>
                   <i class="fas fa-archive"></i>
                   Archived
@@ -93,7 +93,7 @@
                     <td><?= $trip->price; ?> DH</td>
                     <td>
                       <a href="<?= URLROOT; ?>/trips/edit/<?= $trip->id; ?>" class="btn btn-outline-success">Edit</a>
-                      <a href="<?= URLROOT; ?>/trips/archive/<?= $trip->id; ?>" class="btn btn-outline-danger">Archive</a>
+                      <a href="<?= URLROOT; ?>/trips/archiveTrip/<?= $trip->id; ?>" class="btn btn-outline-danger">Archive</a>
                     </td>
                   </tr>
                 <?php endforeach; ?>

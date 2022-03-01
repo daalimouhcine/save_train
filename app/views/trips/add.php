@@ -41,7 +41,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<?= URLROOT; ?>">
+                <a class="nav-link" href="<?= URLROOT; ?>/trips/archived">
                   <span data-feather="layers"></span>
                   <i class="fas fa-archive"></i>
                   Archived

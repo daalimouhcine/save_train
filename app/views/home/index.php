@@ -42,7 +42,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<?= URLROOT; ?>">
+                <a class="nav-link" href="<?= URLROOT; ?>/trips/archived">
                   <span data-feather="layers"></span>
                   <i class="fas fa-archive"></i>
                   Archived
@@ -81,9 +81,9 @@
               <div class="col-sm-4">
                 <div class="card">
                   <div class="card-body">
-                    <h5 class="card-title">Train Trips unavailable</h5>
+                    <h5 class="card-title">Train Trips archived</h5>
                     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">See Trips unvailable</a>
+                    <a href="<?= URLROOT; ?>/trips/archived" class="btn btn-primary">See Trips archived</a>
                   </div>
                 </div>
               </div>
