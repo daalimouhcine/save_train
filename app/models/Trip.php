@@ -20,6 +20,19 @@
         }
 
 
+        public function readArchiveTrips() {
+            $this->db->query("SELECT trains.name, train_trips.* FROM train_trips INNER JOIN trains ON train_trips.train_id = trains.id WHERE available = false");
+            $trips = $this->db->resultSet();
+            $row = $this->db->rowCount();
+
+            if($row > 0) {
+                return $trips;
+            } else {
+                return false;
+            }
+        }
+
+
         public function getOnTrip($trip_id) {
             $this->db->query("SELECT * FROM train_trips WHERE id = :trip_id");
             $this->db->bind(':trip_id', $trip_id);
@@ -78,6 +91,18 @@
         public function archiveTrip($trip_id) {
             $this->db->query('UPDATE train_trips SET available = :available WHERE id = :id');
             $this->db->bind(":available", false);
+            $this->db->bind(":id", $trip_id);
+            if($this->db->execute()) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+
+        public function unarchiveTrip($trip_id) {
+            $this->db->query('UPDATE train_trips SET available = :available WHERE id = :id');
+            $this->db->bind(":available", true);
             $this->db->bind(":id", $trip_id);
             if($this->db->execute()) {
                 return true;
