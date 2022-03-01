@@ -26,7 +26,7 @@
 
         // Register user
         public function register($data) {
-            $this->db->query("INSERT INTO clients(full_name, email, password) VALUES(:full_name, :email, :password)");
+            $this->db->query("INSERT INTO clients(fullName, email, password) VALUES(:full_name, :email, :password)");
             // Bind values
             $this->db->bind(':full_name', $data['full_name']);
             $this->db->bind(':email', $data['email']);
