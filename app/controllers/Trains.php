@@ -51,7 +51,7 @@
                 // Make sure that errors are empty
                 if(empty($data['name_err']) && empty($data['seat_number_err'])) {
                     if($this->trainModel->addTrain($data)) {
-                        flash('train_add_success', 'Train add successfully');
+                        flash('train_add_success', 'Train added successfully');
                         redirect('trains/');
                     }
 
