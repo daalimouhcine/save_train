@@ -8,7 +8,14 @@
 
 
         public function index() {
-            $this->view('trips/index');
+            $trips = $this->tripModel->readTrips();
+
+            if($trips) {
+                $this->view('trips/index', $trips);
+            } else {
+                flash('no_trips', 'Their is no trips pleas add some one', 'alert alert-danger');
+                $this->view('trips/index');
+            }
 
         }
 
@@ -128,5 +135,15 @@
                 $this->view('trips/add', $data);
             }
 
+        }
+
+
+        public function edit($trip_id) {
+            if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+
+            } else {
+                $this->tripMethod->readTrips();
+            }
         }
     }
