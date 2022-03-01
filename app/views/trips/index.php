@@ -13,14 +13,14 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="<?= URLROOT; ?>/trains/">
+                <a class="nav-link" href="<?= URLROOT; ?>/trains">
                   <span data-feather="file"></span>
                   <i class="fas fa-subway"></i>
                   Trains
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<?= URLROOT; ?>/trips">
+                <a class="nav-link active" href="<?= URLROOT; ?>/trips">
                   <span data-feather="shopping-cart"></span>
                   <i class="fa fa-suitcase"></i>
                   Trips
@@ -68,14 +68,33 @@
             <table class="table table-striped table-sm">
               <thead>
                 <tr>
-                  <th class="px-5">Name</th>
-                  <th>Seat Number</th>
+                  <th class="px-1">Train Name</th>
+                  <th>Start From</th>
+                  <th>End In</th>
+                  <th>Distance</th>
+                  <th>Trip Date</th>
+                  <th>Depart Hour</th>
+                  <th>End Hour</th>
+                  <th>Price</th>
                   <th>Params</th>
                 </tr>
               </thead>
               <tbody>
-                <?php foreach($data as $train) : ?>
-                  
+                <?php foreach($data as $trip) : ?>
+                    <tr>
+                    <td class="pl-2"><?= $trip->name; ?></td>
+                    <td><?= $trip->start_from; ?></td>
+                    <td><?= $trip->end_in; ?></td>
+                    <td><?= $trip->distance; ?> Km</td>
+                    <td><?= $trip->trip_date; ?></td>
+                    <td><?= $trip->depart_hour; ?></td>
+                    <td><?= $trip->end_hour; ?></td>
+                    <td><?= $trip->price; ?> DH</td>
+                    <td>
+                      <a href="<?= URLROOT; ?>/trains/edit/<?= $trip->id; ?>" class="btn btn-outline-success">Edit</a>
+                      <a href="<?= URLROOT; ?>/trains/delete/<?= $trip->id; ?>" class="btn btn-outline-danger">Archive</a>
+                    </td>
+                  </tr>
                 <?php endforeach; ?>
               </tbody>
             </table>
