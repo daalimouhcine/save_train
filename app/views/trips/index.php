@@ -59,6 +59,7 @@
           <?php flash('trip_delete_success'); ?>
           <?php flash('delete_prob'); ?>
           <?php flash('modify_trip'); ?>
+          <?php flash('archive_trip'); ?>
           <?php flash('err'); ?>
           <div class="btn-toolbar mb-2 mb-md-0">
             <a href="<?= URLROOT; ?>/trips/add" type="button" class="btn  btn-success">Add a Trip</a>
@@ -92,7 +93,7 @@
                     <td><?= $trip->price; ?> DH</td>
                     <td>
                       <a href="<?= URLROOT; ?>/trips/edit/<?= $trip->id; ?>" class="btn btn-outline-success">Edit</a>
-                      <a href="<?= URLROOT; ?>/trips/delete/<?= $trip->id; ?>" class="btn btn-outline-danger">Archive</a>
+                      <a href="<?= URLROOT; ?>/trips/archive/<?= $trip->id; ?>" class="btn btn-outline-danger">Archive</a>
                     </td>
                   </tr>
                 <?php endforeach; ?>
