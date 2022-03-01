@@ -8,7 +8,7 @@
 
         
         public function readTrips() {
-            $this->db->query("SELECT trains.name, train_trips.* FROM train_trips INNER JOIN trains ON train_trips.train_id = trains.id");
+            $this->db->query("SELECT trains.name, train_trips.* FROM train_trips INNER JOIN trains ON train_trips.train_id = trains.id WHERE available = true");
             $trips = $this->db->resultSet();
             $row = $this->db->rowCount();
 
@@ -67,6 +67,18 @@
             $this->db->bind(":price", $data['price']);
             $this->db->bind(":id", $trip_id);
             // Execute
+            if($this->db->execute()) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+
+        public function archiveTrip($trip_id) {
+            $this->db->query('UPDATE train_trips SET available = :available WHERE id = :id');
+            $this->db->bind(":available", false);
+            $this->db->bind(":id", $trip_id);
             if($this->db->execute()) {
                 return true;
             } else {
