@@ -49,9 +49,16 @@
         public function deleteTrain($trainId) {
             $this->db->query('DELETE FROM trains WHERE id = :id');
             $this->db->bind(':id', $trainId);
-            if($this->db->execute()) {
+            // if($this->db->execute()) {
+            //     return true;
+            // } else {
+            //     return false;
+            // }
+            try{
+                $this->db->execute();
                 return true;
-            } else {
+
+            } catch(Exception) {
                 return false;
             }
         }
