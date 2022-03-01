@@ -76,7 +76,11 @@
                 // Validate trip_date
                 if(empty($data['trip_date'])) {
                     $data['trip_date_err'] = 'Pleas enter the Date of the trip';
+
                 }
+                //  elseif($data['trip_date'] < date('Y-M-D')) {
+                //     $data['trip_date_err'] = "You can't enter this Date chose another one";
+                // }
 
                 // Validate depart_hour
                 if(empty($data['depart_hour'])) {
@@ -257,10 +261,31 @@
         }
 
 
-        public function archive($trip_id) {
+        public function archived() {
+            $archivedTrips = $this->tripModel->readArchiveTrips();
+
+            if($archivedTrips) {
+                $this->view('trips/archive', $archivedTrips);
+            } else {
+                flash('no_archived_trips', 'Their is no archived trips', 'alert alert-danger');
+                $this->view('trips/archive');
+            }
+        }
+
+
+        public function archiveTrip($trip_id) {
             if($this->tripModel->archiveTrip($trip_id)) {
                 flash('archive_trip', 'the trip is archived');
                 redirect('trips/');
             }
         }
+        
+        
+        public function unarchiveTrip($trip_id) {
+            if($this->tripModel->unarchiveTrip($trip_id)) {
+                flash('unarchive_trip', 'the trip is unarchived');
+                redirect('trips/archived');
+            }
+        }
+
     }
