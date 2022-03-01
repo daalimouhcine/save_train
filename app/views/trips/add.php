@@ -69,7 +69,7 @@
                         <label class="input-group-text" for="train">Train:</label>
                       </div>
                       <select class="custom-select <?= (!empty($data['train_err'])) ? 'is-invalid' : ''; ?>" name="train" id="train">
-                        <?php if(!empty($data['train_name'])) : ?>
+                        <?php if(!empty($data['train_id'])) : ?>
                           <option value="<?= $data['train_id']; ?>" selected><?= $data['train_name']; ?></option>
                           <?php foreach($data['trains_available'] as $train) : ?>
                             <?php if($train->name != $data['train_name']) : ?>

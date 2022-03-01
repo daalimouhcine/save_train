@@ -91,8 +91,8 @@
                     <td><?= $trip->end_hour; ?></td>
                     <td><?= $trip->price; ?> DH</td>
                     <td>
-                      <a href="<?= URLROOT; ?>/trains/edit/<?= $trip->id; ?>" class="btn btn-outline-success">Edit</a>
-                      <a href="<?= URLROOT; ?>/trains/delete/<?= $trip->id; ?>" class="btn btn-outline-danger">Archive</a>
+                      <a href="<?= URLROOT; ?>/trips/edit/<?= $trip->id; ?>" class="btn btn-outline-success">Edit</a>
+                      <a href="<?= URLROOT; ?>/trips/delete/<?= $trip->id; ?>" class="btn btn-outline-danger">Archive</a>
                     </td>
                   </tr>
                 <?php endforeach; ?>
