@@ -2,7 +2,13 @@
     class Trains extends Controller {
 
         public function __construct() {
-            $this->trainModel = $this->model('Train');
+            // Mack sure that the admin is logged in
+            if(isset($_SESSION['admin_id'])) {
+                $this->trainModel = $this->model('Train');
+
+            } else {
+                redirect('home');
+            }
         }
 
 

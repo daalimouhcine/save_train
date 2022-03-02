@@ -2,8 +2,14 @@
     class Trips extends Controller {
 
         public function __construct() {
-            $this->tripModel = $this->model('Trip');
-            $this->trainModel = $this->model('Train');
+            // Mack sure that the admin is logged in
+            if(isset($_SESSION['admin_id'])) {
+                $this->tripModel = $this->model('Trip');
+                $this->trainModel = $this->model('Train');
+
+            } else {
+                redirect('home');
+            }
         }
 
 
