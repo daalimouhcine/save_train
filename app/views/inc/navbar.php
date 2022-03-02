@@ -14,14 +14,15 @@
   </nav>
 
   <?php else : ?>
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-      <header class="masthead mb-auto">
+    <div class="d-flex w-100 h-100 p-3 flex-column">
+      <header class="masthead cover-container mx-auto w-100">
         <div class="inner">
           <h3 class="masthead-brand">Cover</h3>
           <nav class="nav nav-masthead justify-content-center">
             <a class="nav-link active" href="<?= URLROOT; ?>">Home</a>
             <?php if(isset($_SESSION['client_id'])) : ?>
-              <a class="nav-link" href="<?= URLROOT; ?>/users/logout">Logout</a>
+              <a class="nav-link" href="<?= URLROOT; ?>/users/logout">Reservations</a>
+              <a class="nav-link" href="<?= URLROOT; ?>/users/logout">Sign out</a>
 
             <?php else : ?>
               <a class="nav-link" href="<?= URLROOT; ?>/users/register">Register</a>
