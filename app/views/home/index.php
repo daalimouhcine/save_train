@@ -106,8 +106,27 @@
     </div>
 
   <?php else : ?>
-    <div class="container-fluid flex mh-auto bg-danger">
-      hello
+      <main role="main" class="text-white m-auto">
+        <h1 class="text-center">Welcome (❁´◡`❁)</h1>
+        <div class="card card-body text-body m-5">
+          <form method="POST" class="form-inline">
+            <div class="form-group d-block m-1">
+                <input type="email" name="email" class="rounded-0 form-control form-control-lg " placeholder="From: *" value="" >
+                <span class="invalid-feedback"></span>
+            </div>
+            <div class="form-group d-block m-1">
+                <input type="text" name="to" class="rounded-0 form-control form-control-lg " placeholder="To: *" value="" >
+                <span class="invalid-feedback"></span>
+            </div>
+            <div class="from-group d-block m-1">
+                <input type="text" name="date" class="rounded-0 form-control form-control-lg " placeholder="Date: (optional)" onfocus="(this.type = 'date')" onblur="(this.type = 'text')" value="" >
+                <span class="invalid-feedback"></span>
+            </div>
+          </form>
+        </div>    
+
+        
+      </main>
     </div>
   
   <?php endif; ?>
