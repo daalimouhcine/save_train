@@ -105,10 +105,10 @@
       </div>
     </div>
 
-
-  <?php elseif(isset($_SESSION['client_id'])) : ?>
-
   <?php else : ?>
+    <div class="container-fluid flex mh-auto bg-danger">
+      hello
+    </div>
   
   <?php endif; ?>
 
