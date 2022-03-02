@@ -14,42 +14,23 @@
   </nav>
 
   <?php else : ?>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
-      <div class="container">
-            <a class="navbar-brand" href="<?= URLROOT; ?>"><?= SITENAME; ?></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-      
-            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                  <a class="nav-link" href="<?= URLROOT; ?>">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="<?= URLROOT; ?>/pages/about">About</a>
-                </li>
-              </ul>
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <h3 class="masthead-brand">Cover</h3>
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link active" href="<?= URLROOT; ?>">Home</a>
+            <?php if(isset($_SESSION['client_id'])) : ?>
+              <a class="nav-link" href="<?= URLROOT; ?>/users/logout">Logout</a>
+
+            <?php else : ?>
+              <a class="nav-link" href="<?= URLROOT; ?>/users/register">Register</a>
+              <a class="nav-link" href="<?= URLROOT; ?>/users/login">Login</a>
               
-              <ul class="navbar-nav ml-auto">
-                <?php if(isset($_SESSION['client_id'])) : ?>
-                  <li class="nav-item">
-                    <a class="nav-link" href="<?= URLROOT; ?>/users/logout">Logout</a>
-                  </li>         
-    
-                <?php else : ?>
-                  <li class="nav-item">
-                    <a class="nav-link" href="<?= URLROOT; ?>/users/register">Register</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="<?= URLROOT; ?>/users/login">Login</a>
-                  </li>
-                  
-                <?php endif; ?>
-              </ul>
-            </div>
-          </div>
-      </nav>
+            <?php endif; ?>
+          </nav>
+        </div>
+      </header>
 
 <?php endif; ?>
   
