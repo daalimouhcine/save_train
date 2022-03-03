@@ -49,9 +49,19 @@
                 // Mack sure all errors arr empty
                 if(empty($data['from_err']) && empty($data['to_err']) && empty($data['date_err'])) {
                     if(!empty($data['date'])) {
-                        $this->homeModel->readTrips($data['from'], $data['to'], $data['date']);
+                        $trips = $this->homeModel->readTrips($data['from'], $data['to'], $data['date']);
                     } else {
-                        $this->homeModel->readTrips($data['from'], $data['to']);
+                        $trips = $this->homeModel->readTrips($data['from'], $data['to']);
+                    }
+
+                    if($trips) {
+                        $data['trips'] = $trips;
+                        $this->view('home/index', $data);
+                        flash('read_trips_success', "Her are the trips available");
+
+                    } else {
+                        flash('no_trips', "Sorry but their is no trips with this information's", 'alert alert-danger');
+                        $this->view('home/index', $data);
                     }
                     
                 } else {
