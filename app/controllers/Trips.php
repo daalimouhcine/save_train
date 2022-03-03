@@ -83,10 +83,16 @@
                 if(empty($data['trip_date'])) {
                     $data['trip_date_err'] = 'Pleas enter the Date of the trip';
 
+                } else {
+                    $trip_date = explode('-', $data['trip_date']);
+                    if($trip_date[0] < date('Y')) {
+                        $data['trip_date_err'] = "You can't enter this Date chose another one";
+                    } elseif($trip_date[1] < date('m')) {
+                        $data['trip_date_err'] = "You can't enter this Date chose another one";
+                    } elseif($trip_date[2] < date('d')) {
+                        $data['trip_date_err'] = "You can't enter this Date chose another one";
+                    }
                 }
-                //  elseif($data['trip_date'] < date('Y-M-D')) {
-                //     $data['trip_date_err'] = "You can't enter this Date chose another one";
-                // }
 
                 // Validate depart_hour
                 if(empty($data['depart_hour'])) {
