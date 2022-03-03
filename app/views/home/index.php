@@ -107,9 +107,9 @@
 
   <?php else : ?>
       <main role="main" class="w-100 text-white m-auto">
-        <section class="h-75">
+        <section class="my-5">
           <h1 class="text-center">Welcome <?= isset($_SESSION['client_id']) ? $_SESSION['client_full_name'] : "(❁´◡`❁)"; ?></h1>
-          <div class="col-9 card card-body text-body m-5 mx-auto">
+          <div class="col-9 card card-body text-body mt-5 mx-auto">
             <form method="POST" class="justify-content-center">
               <div class="d-flex flex-row">
                 <div class=" input-group-lg col-4 d-block">
@@ -130,48 +130,36 @@
           </div>  
         </section>
 
-        <div class="trips container-fluid bg-white d-flex justify-content-center mb-5">
-          <div class="table-responsive">
-            <table class="table table-striped table-sm">
-              <div class="col-4 mx-auto mt-3 text-center">
-                <?php flash('no_trips'); ?>
-                <?php flash('read_trips_success'); ?>
-              </div>
-              <thead>
-                <tr>
-                  <th class="px-1">Train Name</th>
-                  <th>Start From</th>
-                  <th>End In</th>
-                  <th>Distance</th>
-                  <th>Trip Date</th>
-                  <th>Depart Hour</th>
-                  <th>End Hour</th>
-                  <th>Price</th>
-                  <th>Params</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php if(is_array($data['trips']) || is_object($data['trips'])) : ?>
-                  <?php foreach($data['trips'] as $trip) : ?>
-                      <tr>
-                      <td class="pl-2"><?= $trip->name; ?></td>
-                      <td><?= $trip->start_from; ?></td>
-                      <td><?= $trip->end_in; ?></td>
-                      <td><?= $trip->distance; ?> Km</td>
-                      <td><?= $trip->trip_date; ?></td>
-                      <td><?= $trip->depart_hour; ?></td>
-                      <td><?= $trip->end_hour; ?></td>
-                      <td><?= $trip->price; ?> DH</td>
-                      <td>
-                        <a href="<?= URLROOT; ?>/reserve/add<?= $trip->id; ?>" class="btn btn-outline-danger">Reserve</a>
-                      </td>
-                    </tr>
-                  <?php endforeach; ?>
-                <?php endif; ?>
-              </tbody>
-            </table>
+        <section class="trips container-fluid bg-white justify-content-center p-4 my-5">
+          <div class="col-4 mx-auto text-center">
+            <?php flash('no_trips'); ?>
+            <?php flash('read_trips_success'); ?>
           </div>
-        </div>  
+            
+          <?php if(is_array($data['trips']) || is_object($data['trips'])) : ?>
+            <?php foreach($data['trips'] as $trip) : ?>
+              <div class="col-6 bg-light d-flex flex-column text-dark card p-2 mx-auto my-5 align-items-center">
+              <p class="m-1">Train Name: <?= $trip->name; ?></p>
+                <p class="text-center">Date: <?= $trip->trip_date; ?></p>
+                <div class="d-flex">
+                  <p class="m-1">From: <?= $trip->start_from; ?> &rightarrow;</p>
+                  <p class="m-1"><?= !empty($trip->distance) ? $trip->distance.'Km' : ''; ?></p>
+                  <p class="m-1"> &rightarrow;To: <?= $trip->end_in; ?></p>
+                </div>
+                <div class="d-flex">
+                  <p class="m-1">Start at: <?= $trip->depart_hour; ?></p>
+                  <p> &HorizontalLine; </p>
+                  <p class="m-1">End: <?= $trip->end_hour; ?></p>
+                </div>
+                <div class="d-flex align-items-center">
+                  <p class='font-weight-bold my-0 mx-3 align-self-center'><?= $trip->price; ?> DH</p>
+                  <a href="<?= URLROOT; ?>/reservations/add/<?= $trip->id; ?>" class="btn btn-success">Reserve</a>
+                </div>
+              </div>
+        
+            <?php endforeach; ?>
+          <?php endif; ?>
+        </section>
 
         
       </main>
@@ -179,4 +167,4 @@
   
   <?php endif; ?>
 
-<?php require_once APPROOT . '/views/inc/footer.php';?>
+<!-- <?php require_once APPROOT . '/views/inc/footer.php';?> -->
