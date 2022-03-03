@@ -54,36 +54,36 @@
 
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <a href="<?= URLROOT; ?>/trains" type="button" class="btn btn-sm btn-outline-secondary">&leftarrow; View Trains</a>
-          <h1 class="h2 mx-auto">Add Train</h1>
-        </div>
-          
-        <div class="row">
-          <div class="col-md-6 mx-auto">
-              <div class="card card-body bg-light mt-5">
-                  <form action="<?= URLROOT; ?>/trains/add" method="POST">
-                      <div class="form-group">
-                          <label for="name">Name <sup>*</sup></label>
-                          <input type="text" name="name" class="form-control form-control-lg <?= (!empty($data['name_err'])) ? 'is-invalid' : ''; ?>" value="<?= $data['name']; ?>" >
-                          <span class="invalid-feedback"><?= $data['name_err']; ?></span>
-                      </div>
-                      <div class="form-group">
-                          <label for="seat_number">Seat Number: <sup>*</sup></label>
-                          <input type="number" name="seat_number" class="form-control form-control-lg <?= (!empty($data['seat_number_err'])) ? 'is-invalid' : ''; ?>" value="<?= $data['seat_number']; ?>" >
-                          <span class="invalid-feedback"><?= $data['seat_number_err']; ?></span>
-                      </div>
-
-                      <div class="row">
-                          <div class="col-4 mx-auto">
-                              <input type="submit" class="btn btn-success btn-block" value="Add">
-                          </div>
-                      </div>
-                  </form>
-                </div>
-            </div>
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <a href="<?= URLROOT; ?>/trains" type="button" class="btn btn-sm btn-outline-secondary">&leftarrow; View Trains</a>
+            <h1 class="h2 mx-auto">Add Train</h1>
           </div>
-        </main>
+            
+          <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="card card-body bg-light mt-5">
+                    <form action="<?= URLROOT; ?>/trains/add" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name <sup>*</sup></label>
+                            <input type="text" name="name" class="form-control form-control-lg <?= (!empty($data['name_err'])) ? 'is-invalid' : ''; ?>" value="<?= $data['name']; ?>" >
+                            <span class="invalid-feedback"><?= $data['name_err']; ?></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="seat_number">Seat Number: <sup>*</sup></label>
+                            <input type="number" name="seat_number" class="form-control form-control-lg <?= (!empty($data['seat_number_err'])) ? 'is-invalid' : ''; ?>" value="<?= $data['seat_number']; ?>" >
+                            <span class="invalid-feedback"><?= $data['seat_number_err']; ?></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4 mx-auto">
+                                <input type="submit" class="btn btn-success btn-block" value="Add">
+                            </div>
+                        </div>
+                    </form>
+                  </div>
+              </div>
+            </div>
+          </main>
       </div>
     </div>
 
