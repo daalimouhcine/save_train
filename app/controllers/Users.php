@@ -3,6 +3,9 @@
     class Users extends Controller{
 
         public function __construct() {
+            if(isset($_SESSION['client_id']) || isset($_SESSION['admin_id'])) {
+                redirect('');
+            }
             $this->userModel = $this->model('User');
 
         }
