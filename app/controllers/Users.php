@@ -16,6 +16,7 @@
 
                 // Init data
                 $data = [
+                    'action' => 'register',
                     'full_name' => $_POST['full_name'],
                     'email' => $_POST['email'],
                     'password' => $_POST['password'],
@@ -104,6 +105,7 @@
 
                 // Init data
                 $data = [
+                    'action' => 'login',
                     'email' => $_POST['email'],
                     'password' => $_POST['password'],
                     'email_err' => '',
