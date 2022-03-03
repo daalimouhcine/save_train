@@ -21,7 +21,7 @@
           <nav class="nav nav-masthead justify-content-center">
             <a class="nav-link active" href="<?= URLROOT; ?>">Home</a>
             <?php if(isset($_SESSION['client_id'])) : ?>
-              <a class="nav-link" href="<?= URLROOT; ?>/users/logout">Reservations</a>
+              <a class="nav-link" href="<?= URLROOT; ?>/reservation/">Reservations</a>
               <a class="nav-link" href="<?= URLROOT; ?>/users/logout">Sign out</a>
 
             <?php else : ?>
