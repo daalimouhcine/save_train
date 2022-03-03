@@ -29,9 +29,6 @@ html {
 html body {
   height: 100%;
   background-color: #333;
-  display: -ms-flexbox;
-  display: -webkit-box;
-  display: flex;
 }
 
 html body .inner {
