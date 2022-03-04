@@ -153,7 +153,7 @@
                 </div>
                 <div class="d-flex align-items-center">
                   <p class='font-weight-bold my-0 mx-3 align-self-center'><?= $trip->price; ?> DH</p>
-                  <a href="<?= URLROOT; ?>/reservations/add/<?= $trip->id; ?>" class="btn btn-success">Reserve</a>
+                  <a href="<?= URLROOT; ?>/reservations/add/<?= $trip->id; ?><?= isset($_SESSION['client_id']) ? '/'.$_SESSION['client_id'] : ''; ?>" class="btn btn-success">Reserve</a>
                 </div>
               </div>
         
