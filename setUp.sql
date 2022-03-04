@@ -40,11 +40,11 @@ CREATE TABLE IF NOT EXISTS train_trips(
     FOREIGN KEY (train_id) REFERENCES trains(id)
 );
 
-CREATE TABLE IF NOT EXISTS reservation_tickets(
+CREATE TABLE IF NOT EXISTS reservations(
     id int PRIMARY KEY AUTO_INCREMENT,
-    id_trip int DEFAULT NULL,
-    id_client int DEFAULT NULL,
-    id_guest int DEFAULT NULL,
+    id_trip int NOT NULL,
+    id_client int,
+    id_guest int,
     FOREIGN KEY (id_trip) REFERENCES train_trips(id),
     FOREIGN KEY (id_client) REFERENCES clients(id),
     FOREIGN KEY (id_guest) REFERENCES guests(id)
