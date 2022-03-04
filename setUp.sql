@@ -45,6 +45,7 @@ CREATE TABLE IF NOT EXISTS reservations(
     id_trip int NOT NULL,
     id_client int,
     id_guest int,
+    time varchar,
     FOREIGN KEY (id_trip) REFERENCES train_trips(id),
     FOREIGN KEY (id_client) REFERENCES clients(id),
     FOREIGN KEY (id_guest) REFERENCES guests(id)
