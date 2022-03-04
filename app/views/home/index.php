@@ -139,8 +139,10 @@
           <?php if(is_array($data['trips']) || is_object($data['trips'])) : ?>
             <?php foreach($data['trips'] as $trip) : ?>
               <div class="col-6 bg-light d-flex flex-column text-dark card p-2 mx-auto my-5 align-items-center">
-              <p class="m-1">Train Name: <?= $trip->name; ?></p>
-                <p class="text-center">Date: <?= $trip->trip_date; ?></p>
+                <div class="d-flex">
+                  <p class="m-1">Train Name: <?= $trip->name; ?></p>
+                  <p class="text-center">Date: <?= $trip->trip_date; ?></p>
+                </div>
                 <div class="d-flex">
                   <p class="m-1">From: <?= $trip->start_from; ?> &rightarrow;</p>
                   <p class="m-1"><?= !empty($trip->distance) ? $trip->distance.'Km' : ''; ?></p>
@@ -150,6 +152,10 @@
                   <p class="m-1">Start at: <?= $trip->depart_hour; ?></p>
                   <p> &HorizontalLine; </p>
                   <p class="m-1">End: <?= $trip->end_hour; ?></p>
+                </div>
+                <div class="d-flex">
+                  <p class="m-1">Train Name: <?= $trip->seat_number; ?></p>
+                  <p class="text-center">Date: <?= $trip->trip_date; ?></p>
                 </div>
                 <div class="d-flex align-items-center">
                   <p class='font-weight-bold my-0 mx-3 align-self-center'><?= $trip->price; ?> DH</p>
