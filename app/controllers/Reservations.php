@@ -1,4 +1,7 @@
 <?php
+    require_once APPROOT.'\fpdf\fpdf.php';
+    $pdf = new FPDF();
+
     class Reservations extends Controller {
         
         public function __construct() {
