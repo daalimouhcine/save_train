@@ -8,7 +8,7 @@
         
         <div class="col-md-12">
             <div class="card card-body bg-light mt-5">
-                <form action="<?= URLROOT; ?>/trains/add" method="POST">
+                <form method="POST">
                 <div class="d-flex align-items-center">
                     <div class="container col-5">
                         <div class=" bg-light d-flex flex-column text-dark card p-2 mx-auto my-5 align-items-center">
@@ -30,16 +30,29 @@
                         </div>
                     </div>
                     <div class="container col-5">
-                        <div class="form-group">
-                            <label for="client_full_name">Full Name: </label>
-                            <input type="text" name="client_full_name" class="form-control form-control-lg <?= (!empty($data['client_full_name_err'])) ? 'is-invalid' : ''; ?>" value="<?= $data['client_full_name']; ?>" >
-                            <span class="invalid-feedback"><?= $data['client_full_name_err']; ?></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="client_email">Email: </label>
-                            <input type="email" name="client_email" class="form-control form-control-lg <?= (!empty($data['client_email_err'])) ? 'is-invalid' : ''; ?>" value="<?= $data['client_email']; ?>" >
-                            <span class="invalid-feedback"><?= $data['client_email_err']; ?></span>
-                        </div>
+                        <?php if(isset($_SESSION['client_id'])) : ?>
+                            <div class="form-group">
+                                <label for="client_full_name">Full Name: </label>
+                                <input type="text" name="client_full_name" class="form-control border-0 bg-light shadow-none text-dark form-control-lg <?= (!empty($data['client_full_name_err'])) ? 'is-invalid' : ''; ?>" readonly value="<?= $data['client_full_name']; ?>" >
+                                <span class="invalid-feedback"><?= $data['client_full_name_err']; ?></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="client_email">Email: </label>
+                                <input type="email" name="client_email" class="form-control border-0 bg-light shadow-none text-dark form-control-lg <?= (!empty($data['client_email_err'])) ? 'is-invalid' : ''; ?>" readonly value="<?= $data['client_email']; ?>" >
+                                <span class="invalid-feedback"><?= $data['client_email_err']; ?></span>
+                            </div>
+                        <?php else : ?>
+                            <div class="form-group">
+                                <label for="client_full_name">Full Name: </label>
+                                <input type="text" name="client_full_name" class="form-control  form-control-lg <?= (!empty($data['client_full_name_err'])) ? 'is-invalid' : ''; ?>" value="<?= $data['client_full_name']; ?>" >
+                                <span class="invalid-feedback"><?= $data['client_full_name_err']; ?></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="client_email">Email: </label>
+                                <input type="email" name="client_email" class="form-control form-control-lg <?= (!empty($data['client_email_err'])) ? 'is-invalid' : ''; ?>" value="<?= $data['client_email']; ?>" >
+                                <span class="invalid-feedback"><?= $data['client_email_err']; ?></span>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
 
