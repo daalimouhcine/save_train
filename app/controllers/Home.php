@@ -86,12 +86,5 @@
 
         }
 
-        public function reservations(){
-            $data = [
-                'content' => 'FIRST ABOUT IN THE WOOORLD'
-            ];
-            $this->view('home/about', $data);
-
-        }
 
     }
