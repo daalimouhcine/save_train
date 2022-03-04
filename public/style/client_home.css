@@ -38,6 +38,10 @@ html body .inner {
           box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
 }
 
+html body input {
+  outline: none;
+}
+
 .cover-container {
   max-width: 42em;
 }
