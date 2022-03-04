@@ -24,6 +24,7 @@
                         $this->db->bind(':date', $arg[2]);
                         break;
                 }
+                
 
                 try {
                     $trips = $this->db->resultSet();
