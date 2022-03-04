@@ -23,14 +23,14 @@
                         $this->db->query('INSERT INTO reservations(id_trip, id_guest, reserve_time) VALUES(:trip_id, :guest_id, :reserve_time)');
                         $this->bind(':trip_id', $arguments['trip']->id);
                         $this->bind(':guest_id', $guest_id);
-                        $this->db->bind(':reserve_time',date('h:i:s'));
+                        $this->db->bind(':reserve_time',date("Y-m-d h:i:s"));
                         break;
                     case 2:
                         // Add reservation with the id of the trip and the client
                         $this->db->query('INSERT INTO reservations(id_trip, id_client, reserve_time) VALUES(:trip_id, :client_id, :reserve_time)');
                         $this->db->bind(':trip_id', $arguments[0]);
                         $this->db->bind(':client_id',$arguments[1]);
-                        $this->db->bind(':reserve_time',date('h:i:s'));
+                        $this->db->bind(':reserve_time',date("Y-m-d h:i:s"));
                         break;
                 }
 
