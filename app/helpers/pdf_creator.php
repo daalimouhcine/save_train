@@ -22,7 +22,7 @@
 		$pdf->SetFont('Arial','B',16);
 		$pdf->Cell(0,10,"Ticket for Train Trip",1,1,'C');
 		$pdf->Ln($lineBreak);
-		$pdf->Write(5,'Ticket Details','C');
+		$pdf->Write(5,'Ticket N:' . $data['trip']->id . ' Details','C');
 		$pdf->SetFont('Arial','',10);
 		$pdf->Ln($lineBreak);
 		$pdf->Cell(90,10,"First Name :",1,0,'C');
