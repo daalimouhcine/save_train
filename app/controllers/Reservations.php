@@ -45,7 +45,7 @@
                 if(empty($data['client_full_name_err']) && empty($data['client_email_err'])) {
                     if($client_id != null) {
                         if($this->reservationModel->addReservation($data['trip']->id, $client_id)) {
-                            pdfReservation($trip_id, $data);
+                            pdfReservation($data);
                             // flash('reserve_add_success', 'Reservation added successfully');
                             // redirect('reservations/');
                         }
