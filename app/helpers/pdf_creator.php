@@ -2,21 +2,20 @@
 
     
     // Create pdf with the Reservation info
-    function pdfReservation($trip_info, $user_info) {
+    function pdfReservation($data) {
         require APPROOT.'/fpdf/fpdf.php';
         $pdf = new FPDF();
-        
+
         $lineBreak=15.81;
 		$lb=17.11;
-		$from='casa';
-	  	$to='temara';
-	  	$train_id='5';
-	  	$total_fare='hello';
-	  	$date=date('Y-m-d');
+		$from=$data['trip']->from;
+	  	$to=$data['trip']->to;
+	  	$train_id=$data['trip']->id;
+	  	$date=$data['trip']->trip_date;
 		$full_name=$user_info['client_full_name'];
-	  	$time=date('h:i:s');
+	  	$depart_time=$data['trip']->depart_hour;
+	  	$end_time=$data['trip']->end_hour;
 	  	$email=$user_info['client_email'];
-	  	$date = date('Y/m/d');
         $image1 = URLROOT.'/public/img/signature.png';
 
 		$pdf->AddPage();
@@ -34,8 +33,10 @@
 		$pdf->Cell(90,10,$to,1,1,'C');
 		$pdf->Cell(90,10,"Bus No. :",1,0,'C');
 		$pdf->Cell(90,10,$train_id,1,1,'C');
-		$pdf->Cell(90,10,"Time :",1,0,'C');
-		$pdf->Cell(90,10,$time,1,1,'C');
+		$pdf->Cell(90,10,"Depart Time :",1,0,'C');
+		$pdf->Cell(90,10,$depart_time,1,1,'C');
+		$pdf->Cell(90,10,"End Time :",1,0,'C');
+		$pdf->Cell(90,10,$end_time,1,1,'C');
 		$pdf->Cell(90,10,"Date :",1,0,'C');
 		$pdf->Cell(90,10,$date,1,1,'C');
 		$pdf->Cell(90,10,"Email :",1,0,'C');
