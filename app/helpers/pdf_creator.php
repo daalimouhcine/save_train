@@ -12,10 +12,10 @@
 	  	$to=$data['trip']->end_in;
 	  	$train_id=$data['trip']->id;
 	  	$date=$data['trip']->trip_date;
-		$full_name=$user_info['client_full_name'];
+		$full_name=$data['client_full_name'];
 	  	$depart_time=$data['trip']->depart_hour;
 	  	$end_time=$data['trip']->end_hour;
-	  	$email=$user_info['client_email'];
+	  	$email=$data['client_email'];
         $image1 = URLROOT.'/public/img/signature.png';
 
 		$pdf->AddPage();
@@ -46,6 +46,6 @@
 		$pdf->Ln($lb);
 		$pdf->Write(5,'Authorized Signature');
 
-        $fill = "$user_info[client_full_name]_train_reservation".'.pdf';
+        $fill = "$data[client_full_name]_train_reservation".'.pdf';
 		$pdf->Output($fill, 'D');	
     }
