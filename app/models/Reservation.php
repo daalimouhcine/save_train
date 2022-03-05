@@ -35,14 +35,14 @@
                 }
 
                 if($this->db->execute()) {
-                    $this->db->query('SELECT client.*, guest.*, train_trips.*, reservations.* FROM trains, train_trips INNER JOIN reservations ON id_trip = train_trips.id AND id_client = client.id ORDER BY id DESC LIMIT 1');
+                    return true;
                 } else {
                     return false;
                 }
             }
         }
 
-
+    
         public function readOnReservation() {
 
         }
