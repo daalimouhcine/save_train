@@ -9,7 +9,7 @@
         $lineBreak=15.81;
 		$lb=17.11;
 		$from=$data['trip']->start_from;
-	  	$to=$data['trip']->to;
+	  	$to=$data['trip']->end_to;
 	  	$train_id=$data['trip']->id;
 	  	$date=$data['trip']->trip_date;
 		$full_name=$user_info['client_full_name'];
