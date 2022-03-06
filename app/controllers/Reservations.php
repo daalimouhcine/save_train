@@ -12,14 +12,14 @@
         public function index() {
             $reservations = $this->reservationModel->readReservations();
             $this->view('reservations/');
-            if($reservations) {
-                $this->view('reservations/index', $reservations);
+            // if($reservations) {
+            //     $this->view('reservations/index', $reservations);
 
-            } else {
-                $this->view('reservations/');
-                flash('no_reservations', 'Their is no reservations', 'alert alert-danger');
+            // } else {
+            //     $this->view('reservations/');
+            //     flash('no_reservations', 'Their is no reservations', 'alert alert-danger');
                 
-            }
+            // }
 
 
         }
