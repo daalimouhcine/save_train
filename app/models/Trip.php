@@ -7,21 +7,9 @@
         }
 
         
-        public function readTrips() {
-            $this->db->query("SELECT trains.name, train_trips.* FROM train_trips INNER JOIN trains ON train_trips.train_id = trains.id WHERE available = true");
-            $trips = $this->db->resultSet();
-            $row = $this->db->rowCount();
-
-            if($row > 0) {
-                return $trips;
-            } else {
-                return false;
-            }
-        }
-
-
-        public function readArchiveTrips() {
-            $this->db->query("SELECT trains.name, train_trips.* FROM train_trips INNER JOIN trains ON train_trips.train_id = trains.id WHERE available = false");
+        public function readTrips($condition = true) {
+            $this->db->query("SELECT trains.name, train_trips.* FROM train_trips INNER JOIN trains ON train_trips.train_id = trains.id WHERE available = :condition");
+            $this->db->bind(':condition', $condition);
             $trips = $this->db->resultSet();
             $row = $this->db->rowCount();
 
@@ -34,7 +22,7 @@
 
 
         public function getOnTrip($trip_id) {
-            $this->db->query("SELECT trains.name, train_trips.* FROM train_trips INNER JOIN trains ON train_trips.train_id = trains.id WHERE train_trips.id = :trip_id");
+            $this->db->query("SELECT trains.name, train_trips.* FROM train_trips INNER JOIN trains ON train_trips.train_id = trains.id WHERE train_trips.available = true AND train_trips.id = :trip_id");
 
             $this->db->bind(':trip_id', $trip_id);
             $trip = $this->db->single();

@@ -284,7 +284,7 @@
 
 
         public function archived() {
-            $archivedTrips = $this->tripModel->readArchiveTrips();
+            $archivedTrips = $this->tripModel->readTrips(false);
 
             if($archivedTrips) {
                 $this->view('trips/archive', $archivedTrips);
