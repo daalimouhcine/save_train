@@ -49,7 +49,8 @@
             $reservations = $this->db->resultSet();
 
             if($reservations) {
-                return $reservations;
+                die($reservations);
+                // return $reservations;
             } else {
                 return false;
             }
