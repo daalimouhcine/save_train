@@ -11,6 +11,7 @@
 
         public function index() {
             $reservations = $this->reservationModel->readReservations();
+            $this->view('reservations/');
             if($reservations) {
                 $this->view('reservations/index', $reservations);
 
