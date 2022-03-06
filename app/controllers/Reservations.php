@@ -12,7 +12,7 @@
         public function index() {
             $reservations = $this->reservationModel->readReservations();
             if($reservations) {
-                $this->view('reservations/', $reservations);
+                $this->view('reservations/index', $reservations);
 
             } else {
                 $this->view('reservations/');
@@ -55,7 +55,7 @@
                     if($client_id != null) {
                         if($this->reservationModel->addReservation($data, $client_id)) {
                             pdfReservation($data);
-                            flash('reserve_add_success', 'Reservation added successfully');
+                            flash('add_reservation_success', 'Reservation added successfully');
                             redirect('reservations/');
                         }
                     } else {
