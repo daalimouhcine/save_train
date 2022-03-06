@@ -12,7 +12,7 @@
                 <div class="d-flex align-items-center">
                     <div class="container col-5">
                         <div class=" bg-light d-flex flex-column text-dark card p-2 mx-auto my-5 align-items-center">
-                            <p class="m-1">Train Name: <?= $data['trip']->train_id; ?></p>
+                            <p class="m-1">Train Name: <?= $data['trip']->name; ?></p>
                             <p class="text-center">Date: <?= $data['trip']->trip_date; ?></p>
                             <div class="d-flex">
                                 <p class="m-1">From: <?= $data['trip']->start_from; ?> &rightarrow;</p>
