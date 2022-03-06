@@ -10,7 +10,7 @@
         }
 
         public function index() {
-            $reservations = $this->reservationModel->readReservations();
+            // $reservations = $this->reservationModel->readReservations();
             $this->view('reservations/index');
             // if($reservations) {
             //     $this->view('reservations/index', $reservations);
