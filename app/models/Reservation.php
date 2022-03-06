@@ -25,6 +25,7 @@
                         $this->bind(':guest_id', $guest_id);
                         $this->db->bind(':reserve_time',date("Y-m-d h:i:s"));
                         break;
+                        
                     case 2:
                         // Add reservation with the id of the trip and the client
                         $this->db->query('INSERT INTO reservations(id_trip, id_client, reserve_time) VALUES(:trip_id, :client_id, :reserve_time)');
