@@ -48,6 +48,9 @@
 		$pdf->Cell(90,10,"Price :",1,0,'C');
 		$pdf->Cell(90,10,$price.'DH',1,1,'C');
 		$pdf->Ln($lineBreak);
+		$pdf->SetFont('Arial','b',12);
+		$pdf->Write(5,'Date and Time: '.date("Y-m-d h:i:s"));
+		$pdf->Ln($lineBreak);
         $pdf->Cell( 40, 40, $pdf->Image($image1, $pdf->GetX(), $pdf->GetY(), 33.78), 0, 0, 'L', false );
 		$pdf->Ln($lb);
 		$pdf->Write(5,'Authorized Signature');
