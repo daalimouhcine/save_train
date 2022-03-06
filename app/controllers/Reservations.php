@@ -10,6 +10,15 @@
         }
 
         public function index() {
+            $reservations = $this->reservationModel->readReservations();
+            if($reservations) {
+                $this->view('reservations/', $reservations);
+
+            } else {
+                $this->view('reservations/');
+                flash('no_reservations', 'Their is no reservations', 'alert alert-danger');
+                
+            }
 
 
         }
@@ -44,15 +53,15 @@
                 // Make sure that errors are empty
                 if(empty($data['client_full_name_err']) && empty($data['client_email_err'])) {
                     if($client_id != null) {
-                        if($this->reservationModel->addReservation($data['trip']->id, $client_id)) {
+                        if($this->reservationModel->addReservation($data, $client_id)) {
                             pdfReservation($data);
-                            // flash('reserve_add_success', 'Reservation added successfully');
-                            // redirect('reservations/');
+                            flash('reserve_add_success', 'Reservation added successfully');
+                            redirect('reservations/');
                         }
                     } else {
                         if($this->reservationModel->addReservation($data)) {
-                            // flash('reserve_add_success', 'Reservation added successfully');
-                            // redirect('reservations/');
+                            pdfReservation($data);
+                            redirect('home/');
                         }
                     }
 
