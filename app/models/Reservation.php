@@ -47,7 +47,6 @@
             $this->db->query('SELECT train_trips.*, client.*, reservations.* FROM train_trips, clients INNER JOIN reservations ON reservations.id_trip = train_trips.id AND reservations.id_client = clients.id WHERE reservations.id_client = :id_client');
             $this->db->bind(':id_client', $_SESSION['client_id']);
             $reservations = $this->db->resultSet();
-
             if($reservations) {
                 die($reservations);
                 // return $reservations;
