@@ -25,7 +25,7 @@
                         $this->bind(':guest_id', $guest_id);
                         $this->db->bind(':reserve_time',date("Y-m-d h:i:s"));
                         break;
-                        
+
                     case 2:
                         // Add reservation with the id of the trip and the client
                         $this->db->query('INSERT INTO reservations(id_trip, id_client, reserve_time) VALUES(:trip_id, :client_id, :reserve_time)');
@@ -45,15 +45,21 @@
 
     
         public function readReservations() {
-            // $this->db->query('SELECT train_trips.*, client.*, reservations.* FROM train_trips, clients INNER JOIN reservations ON reservations.id_trip = train_trips.id AND reservations.id_client = clients.id WHERE reservations.id_client = :id_client');
-            // $this->db->bind(':id_client', $_SESSION['client_id']);
-            // $reservations = $this->db->resultSet();
-            // if($reservations) {
-            //     die($reservations);
-            //     // return $reservations;
-            // } else {
-            //     return false;
-            // }
+            $this->db->query('SELECT train_trips.*,clients.fullName, clients.email, reservations.* 
+                                FROM train_trips 
+                                INNER JOIN reservations 
+                                ON reservations.id_trip = train_trips.id 
+                                INNER JOIN clients 
+                                ON reservations.id_client = clients.id 
+                                WHERE reservations.id_client = :id_client');
+            $this->db->bind(':id_client', $_SESSION['client_id']);
+            $reservations = $this->db->resultSet();
+            if($reservations) {
+                die(print_r($reservations));
+                // return $reservations;
+            } else {
+                return false;
+            }
 
         }
         
