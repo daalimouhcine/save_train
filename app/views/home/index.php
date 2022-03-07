@@ -96,11 +96,7 @@
                   </div>
                 </div>
               </div>
-            </div>
-
-            
-          <h2>Section title</h2>
-        
+            </div>        
         </main>
       </div>
     </div>
