@@ -10,16 +10,15 @@
         }
 
         public function index() {
-            // $reservations = $this->reservationModel->readReservations();
-            $this->view('reservations/index');
-            // if($reservations) {
-            //     $this->view('reservations/index', $reservations);
+            $reservations = $this->reservationModel->readReservations();
+            if($reservations) {
+                $this->view('reservations/index', $reservations);
 
-            // } else {
-            //     $this->view('reservations/');
-            //     flash('no_reservations', 'Their is no reservations', 'alert alert-danger');
+            } else {
+                $this->view('reservations/');
+                flash('no_reservations', 'Their is no reservations', 'alert alert-danger');
                 
-            // }
+            }
 
 
         }
@@ -31,7 +30,7 @@
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Sanitize POST
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-                
+
                 // Init data
                 $data = [
                     'trip' => $trip,
