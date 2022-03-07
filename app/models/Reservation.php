@@ -52,11 +52,11 @@
                                 INNER JOIN clients 
                                 ON reservations.id_client = clients.id 
                                 WHERE reservations.id_client = :id_client');
+
             $this->db->bind(':id_client', $_SESSION['client_id']);
             $reservations = $this->db->resultSet();
             if($reservations) {
-                die(print_r($reservations));
-                // return $reservations;
+                return $reservations;
             } else {
                 return false;
             }
