@@ -45,14 +45,16 @@
 
     
         public function readReservations() {
-            $this->db->query('SELECT train_trips.*,clients.fullName, clients.email, reservations.* 
+            $this->db->query('SELECT trains.*, train_trips.*,clients.fullName, clients.email, reservations.* 
                                 FROM train_trips 
+                                INNER JOIN trains
+                                ON train_trips.train_id = trains.id
                                 INNER JOIN reservations 
                                 ON reservations.id_trip = train_trips.id 
                                 INNER JOIN clients 
                                 ON reservations.id_client = clients.id 
                                 WHERE reservations.id_client = :id_client');
-
+                                
             $this->db->bind(':id_client', $_SESSION['client_id']);
             $reservations = $this->db->resultSet();
             if($reservations) {
