@@ -255,7 +255,7 @@
 
 
             } else {
-                $trip = $this->tripModel->getOnTrip($trip_id);
+                $trip = $this->tripModel->getOneTrip($trip_id);
                 $data = [
                     'trains_available' => $trains,
                     'train_name' => '',
