@@ -8,23 +8,23 @@
 
         $lineBreak = 15.81;
 		$lb = 17.11;
-		$train_name = $data['trip']->name;
-		$from = $data['trip']->start_from;
-	  	$to = $data['trip']->end_in;
-	  	$train_id = $data['trip']->train_id;
-	  	$date = $data['trip']->trip_date;
+		$train_name = $data['train_name'];
+		$from = $data['start_from'];
+	  	$to = $data['end_in'];
+	  	$train_id = $data['train_id'];
+	  	$date = $data['trip_date'];
+	  	$depart_time = $data['depart_time'];
+	  	$end_time = $data['end_time'];
+		$price = $data['price'];
 		$full_name = $data['client_full_name'];
-	  	$depart_time = $data['trip']->depart_hour;
-	  	$end_time = $data['trip']->end_hour;
 	  	$email = $data['client_email'];
-		$price = $data['trip']->price;
         $image1 = URLROOT.'/public/img/signature.png';
 
 		$pdf->AddPage();
 		$pdf->SetFont('Arial','B',16);
 		$pdf->Cell(0,10,"Ticket for Train Trip",1,1,'C');
 		$pdf->Ln($lineBreak);
-		$pdf->Write(5,'Ticket No' . $data['trip']->id . ' Details','C');
+		$pdf->Write(5,'Ticket No' . $data['trip_id'] . ' Details','C');
 		$pdf->SetFont('Arial','',10);
 		$pdf->Ln($lineBreak);
 		$pdf->Cell(90,10,"Train Name :",1,0,'C');
@@ -49,7 +49,7 @@
 		$pdf->Cell(90,10,$price.'DH',1,1,'C');
 		$pdf->Ln($lineBreak);
 		$pdf->SetFont('Arial','b',12);
-		$pdf->Write(5,'Date and Time: '.date("Y-m-d h:i:s"));
+		$pdf->Write(5,'Date and Time: '. (isset($data['reservation_date']) ? $data['reservation_date'] : date("Y-m-d h:i:s")));
 		$pdf->Ln($lineBreak);
         $pdf->Cell( 40, 40, $pdf->Image($image1, $pdf->GetX(), $pdf->GetY(), 33.78), 0, 0, 'L', false );
 		$pdf->Ln($lb);
