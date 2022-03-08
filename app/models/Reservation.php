@@ -44,7 +44,7 @@
         }
 
     
-        public function readOnReservation($reservation_id) {
+        public function readOneReservation($reservation_id) {
             $this->db->query('SELECT trains.*, train_trips.*,clients.fullName, clients.email, reservations.* 
                                 FROM train_trips 
                                 INNER JOIN trains
