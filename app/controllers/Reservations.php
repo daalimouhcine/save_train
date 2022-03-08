@@ -23,7 +23,7 @@
 
 
         public function ticket($reservation_id) {
-            $reservation = $this->reservationModel->readOnReservation($reservation_id);
+            $reservation = $this->reservationModel->readOneReservation($reservation_id);
             if($reservation) {
                 // Init data
                 $data = [
