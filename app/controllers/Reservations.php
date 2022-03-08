@@ -6,7 +6,6 @@
             $this->reservationModel = $this->model('Reservation');
             $this->userModel = $this->model('User');
             $this->tripModel = $this->model('Trip');
-
         }
 
         public function index() {
