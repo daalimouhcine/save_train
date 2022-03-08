@@ -21,7 +21,7 @@
         }
 
 
-        public function getOnTrip($trip_id) {
+        public function getOneTrip($trip_id) {
             $this->db->query("SELECT trains.name, train_trips.* FROM train_trips INNER JOIN trains ON train_trips.train_id = trains.id WHERE train_trips.available = true AND train_trips.id = :trip_id");
 
             $this->db->bind(':trip_id', $trip_id);
