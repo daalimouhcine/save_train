@@ -16,7 +16,6 @@
             } else {
                 $this->view('reservations/index', $reservations);
                 flash('no_reservations', 'Their is no reservations', 'alert alert-danger');
-                
             }
         }
 
