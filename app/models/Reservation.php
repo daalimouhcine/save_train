@@ -29,7 +29,7 @@
                     case 2:
                         // Add reservation with the id of the trip and the client
                         $this->db->query('INSERT INTO reservations(id_trip, id_client, reserve_time) VALUES(:trip_id, :client_id, :reserve_time)');
-                        $this->db->bind(':trip_id', $arguments[0]['trip']->id);
+                        $this->db->bind(':trip_id', $arguments[0]['trip_id']);
                         $this->db->bind(':client_id',$arguments[1]);
                         $this->db->bind(':reserve_time',date("Y-m-d h:i:s"));
                         break;
@@ -44,6 +44,31 @@
         }
 
     
+        public function readOnReservation($reservation_id) {
+            $this->db->query('SELECT trains.*, train_trips.*,clients.fullName, clients.email, reservations.* 
+                                FROM train_trips 
+                                INNER JOIN trains
+                                ON train_trips.train_id = trains.id
+                                INNER JOIN reservations 
+                                ON reservations.id_trip = train_trips.id 
+                                INNER JOIN clients 
+                                ON reservations.id_client = clients.id 
+                                WHERE reservations.id = :reservation_id');
+
+            $this->db->bind(':reservation_id', $reservation_id);
+            
+            $trip = $this->db->single();
+            if($trip) {
+                // die(print_r($trip));
+                return $trip;
+            } else {
+                return false;
+            }
+
+        }
+
+
+
         public function readReservations() {
             $this->db->query('SELECT trains.*, train_trips.*,clients.fullName, clients.email, reservations.* 
                                 FROM train_trips 
@@ -62,7 +87,19 @@
             } else {
                 return false;
             }
+        }
 
+
+
+        public function cancelReservation($reservation_id) {
+            $this->db->query('DELETE FROM reservations WHERE id = :reservation_id');
+            $this->db->bind(':reservation_id', $reservation_id);
+            
+            if($this->db->execute()) {
+                return true;
+            } else {
+                return false;
+            }
         }
         
         
