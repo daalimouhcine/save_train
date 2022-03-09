@@ -46,7 +46,7 @@
 
         public function add($trip_id, $client_id = null) {
             // Get trip and client information's
-            $trip = $this->tripModel->getOnTrip($trip_id);
+            $trip = $this->tripModel->getOneTrip($trip_id);
 
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Sanitize POST
