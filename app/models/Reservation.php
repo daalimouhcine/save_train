@@ -12,17 +12,17 @@
                     case 1:
                         // Add new guest to the table
                         $this->db->query('INSERT INTO guests(fullName, email) VALUES(:full_name, :email)');
-                        $this->db->bind(':full_name', $arguments['client_full_name']);
-                        $this->db->bind(':email', $arguments['client_email']);
+                        $this->db->bind(':full_name', $arguments[0]['client_full_name']);
+                        $this->db->bind(':email', $arguments[0]['client_email']);
                         $this->db->execute();
                         // Get the id of the guest
                         $this->db->query('SELECT id FROM guests WHERE fullName = :guest_full_name');
-                        $this->db->bind(':guest_full_name', $arguments['client_full_name']);
+                        $this->db->bind(':guest_full_name', $arguments[0]['client_full_name']);
                         $guest_id = $this->db->single();
                         // Add reservation with the id of the trip and the guest
                         $this->db->query('INSERT INTO reservations(id_trip, id_guest, reserve_time) VALUES(:trip_id, :guest_id, :reserve_time)');
-                        $this->bind(':trip_id', $arguments['trip']->id);
-                        $this->bind(':guest_id', $guest_id);
+                        $this->db->bind(':trip_id', $arguments[0]['trip_id']);
+                        $this->db->bind(':guest_id', $guest_id->id);
                         $this->db->bind(':reserve_time',date("Y-m-d h:i:s"));
                         break;
 
