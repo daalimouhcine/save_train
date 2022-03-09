@@ -112,7 +112,16 @@
 
                 } else {
                     $data = [
-                        'trip' => $trip,
+                        'train_id' => $trip->train_id,
+                        'trip_id' => $trip->id,
+                        'train_name' => $trip->name,
+                        'start_from' => $trip->start_from,
+                        'end_in' => $trip->end_in,
+                        'distance' => $trip->distance,
+                        'trip_date' => $trip->trip_date,
+                        'depart_time' => $trip->depart_hour,
+                        'end_time' => $trip->end_hour,
+                        'price' => $trip->price,
                         'client_full_name' => '',
                         'client_email' => '',
                         'client_full_name_err' => '',
