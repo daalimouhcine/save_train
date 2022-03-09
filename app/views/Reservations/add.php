@@ -12,20 +12,20 @@
                 <div class="d-flex align-items-center">
                     <div class="container col-5">
                         <div class=" bg-light d-flex flex-column text-dark card p-2 mx-auto my-5 align-items-center">
-                            <p class="m-1">Train Name: <?= $data['trip']->name; ?></p>
-                            <p class="text-center">Date: <?= $data['trip']->trip_date; ?></p>
+                            <p class="m-1">Train Name: <?= $data['train_name']; ?></p>
+                            <p class="text-center">Date: <?= $data['trip_date']; ?></p>
                             <div class="d-flex">
-                                <p class="m-1">From: <?= $data['trip']->start_from; ?> &rightarrow;</p>
-                                <p class="m-1"><?= !empty($data['trip']->distance) ? $data['trip']->distance.'Km' : ''; ?></p>
-                                <p class="m-1"> &rightarrow;To: <?= $data['trip']->end_in; ?></p>
+                                <p class="m-1">From: <?= $data['start_from']; ?> &rightarrow;</p>
+                                <p class="m-1"><?= !empty($data['distance']) ? $data['distance'].'Km' : ''; ?></p>
+                                <p class="m-1"> &rightarrow;To: <?= $data['end_in']; ?></p>
                             </div>
                                 <div class="d-flex">
-                                <p class="m-1">Start at: <?= $data['trip']->depart_hour; ?></p>
+                                <p class="m-1">Start at: <?= $data['depart_time']; ?></p>
                                 <p> &HorizontalLine; </p>
-                                <p class="m-1">End: <?= $data['trip']->end_hour; ?></p>
+                                <p class="m-1">End: <?= $data['end_time']; ?></p>
                                 </div>
                             <div class="d-flex align-items-center">
-                                <p class='font-weight-bold my-0 mx-3 align-self-center'><?= $data['trip']->price; ?> DH</p>
+                                <p class='font-weight-bold my-0 mx-3 align-self-center'><?= $data['price']; ?> DH</p>
                             </div>
                         </div>
                     </div>
