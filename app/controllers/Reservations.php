@@ -91,7 +91,7 @@
                         }
                     } else {
                         if($this->reservationModel->addReservation($data)) {
-                            redirect('home/');
+                            redirect('home');
                             pdfReservation($data);
                         }
                     }
