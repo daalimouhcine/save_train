@@ -91,8 +91,8 @@
                         }
                     } else {
                         if($this->reservationModel->addReservation($data)) {
-                            redirect('');
                             pdfReservation($data);
+                            redirect('reservations/index');
                         }
                     }
 
