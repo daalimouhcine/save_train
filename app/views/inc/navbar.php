@@ -17,7 +17,7 @@
     <div class="d-flex w-100 h-100 p-3 flex-column">
       <header class="masthead cover-container mx-auto w-100">
         <div class="inner">
-          <h3 class="masthead-brand">Cover</h3>
+          <h3 class="masthead-brand">Save Train</h3>
           <nav class="nav nav-masthead justify-content-center">
             <a class="nav-link active" href="<?= URLROOT; ?>">Home</a>
             <?php if(isset($_SESSION['client_id'])) : ?>
