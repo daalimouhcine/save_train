@@ -13,7 +13,6 @@
             $trips = $this->db->resultSet();
             $row = $this->db->rowCount();
 
-
             if($row > 0) {
                 return $trips;
             } else {
