@@ -86,8 +86,8 @@
                     if($client_id != null) {
                         if($this->reservationModel->addReservation($data, $client_id)) {
                             flash('add_reservation_success', 'Reservation added successfully');
-                            redirect('reservations/index');
                             pdfReservation($data);
+                            redirect('reservations/index');
                         }
                     } else {
                         if($this->reservationModel->addReservation($data)) {
@@ -106,9 +106,20 @@
                 // Init data
                 if(isset($_SESSION['client_id'])) {
                     $data = [
-                        'trip' => $trip,
+                        'train_id' => $trip->train_id,
+                        'trip_id' => $trip->id,
+                        'train_name' => $trip->name,
+                        'start_from' => $trip->start_from,
+                        'end_in' => $trip->end_in,
+                        'distance' => $trip->distance,
+                        'trip_date' => $trip->trip_date,
+                        'depart_time' => $trip->depart_hour,
+                        'end_time' => $trip->end_hour,
+                        'price' => $trip->price,
                         'client_full_name' => $_SESSION['client_full_name'],
-                        'client_email' => $_SESSION['client_email']
+                        'client_email' => $_SESSION['client_email'],
+                        'client_full_name_err' => '',
+                        'client_email_err' => '' 
                     ];
 
                 } else {
