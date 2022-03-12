@@ -91,7 +91,6 @@
                         }
                     } else {
                         if($this->reservationModel->addReservation($data)) {
-                            flash('add_reservation_success', 'Reservation added successfully');
                             redirect('home');
                             pdfReservation($data);
                         }
