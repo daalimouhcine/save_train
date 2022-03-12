@@ -2,7 +2,7 @@
 
     
     // Create pdf with the Reservation info
-    function pdfReservation($data, $direction) {
+    function pdfReservation($data) {
         require APPROOT.'/fpdf/fpdf.php';
         $pdf = new FPDF();
 
@@ -54,12 +54,7 @@
         $pdf->Cell( 40, 40, $pdf->Image($image1, $pdf->GetX(), $pdf->GetY(), 33.78), 0, 0, 'L', false );
 		$pdf->Ln($lb);
 		$pdf->Write(5,'Authorized Signature');
-		
+
         $fill = "$data[client_full_name]_train_reservation".'.pdf';
 		$pdf->Output($fill, 'D');	
-		
-		// redirect to the page 
-		redirect($direction);
-
-
     }
