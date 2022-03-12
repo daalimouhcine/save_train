@@ -55,9 +55,7 @@
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
           <h1 class="h2">clients</h1>
           <?php flash('no_clients'); ?>
-          <div class="btn-toolbar mb-2 mb-md-0">
-            <a href="<?= URLROOT; ?>/trains/add" type="button" class="btn  btn-success">Add Train</a>
-        </div>
+          <?php flash('client_delete_success'); ?>
       </div>
           <div class="table-responsive">
             <table class="table table-striped table-sm">
