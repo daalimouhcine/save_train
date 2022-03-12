@@ -86,13 +86,11 @@
                     if($client_id != null) {
                         if($this->reservationModel->addReservation($data, $client_id)) {
                             flash('add_reservation_success', 'Reservation added successfully');
-                            pdfReservation($data);
-                            redirect('reservations/index');
+                            pdfReservation($data, 'reservations/index');
                         }
                     } else {
                         if($this->reservationModel->addReservation($data)) {
-                            redirect('home');
-                            pdfReservation($data);
+                            pdfReservation($data, 'home');
                         }
                     }
 
