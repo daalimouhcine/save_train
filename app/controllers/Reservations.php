@@ -39,8 +39,8 @@
                     'client_full_name' => $reservation->fullName,
                     'client_email' => $reservation->email
                 ];
-                pdfReservation($data, 'reservations');
-                // redirect('reservations');
+                pdfReservation($data);
+                redirect('reservations');
             }
         }
 
@@ -86,11 +86,13 @@
                     if($client_id != null) {
                         if($this->reservationModel->addReservation($data, $client_id)) {
                             flash('add_reservation_success', 'Reservation added successfully');
-                            pdfReservation($data, 'reservations/index');
+                            pdfReservation($data);
+                            redirect('reservations/index');
                         }
                     } else {
                         if($this->reservationModel->addReservation($data)) {
-                            pdfReservation($data, 'home');
+                            redirect('home');
+                            pdfReservation($data);
                         }
                     }
 
