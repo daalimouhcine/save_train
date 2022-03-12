@@ -9,7 +9,7 @@
                 <a class="nav-link" href="<?= URLROOT; ?>">
                   <span data-feather="home"></span>
                   <i class="fas fa-columns"></i>
-                  Dashboard <span class="sr-only">(current)</span>
+                  Dashboard
                 </a>
               </li>
               <li class="nav-item">
