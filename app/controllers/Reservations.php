@@ -39,8 +39,8 @@
                     'client_full_name' => $reservation->fullName,
                     'client_email' => $reservation->email
                 ];
-                pdfReservation($data);
-                redirect('reservations');
+                pdfReservation($data, 'reservations');
+                // redirect('reservations');
             }
         }
 
