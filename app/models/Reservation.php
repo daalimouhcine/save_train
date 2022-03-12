@@ -43,6 +43,7 @@
             }
         }
 
+
     
         public function readOneReservation($reservation_id) {
             $this->db->query('SELECT trains.*, train_trips.*,clients.fullName, clients.email, reservations.* 
@@ -81,6 +82,7 @@
                                 
             $this->db->bind(':id_client', $_SESSION['client_id']);
             $reservations = $this->db->resultSet();
+
             if($reservations) {
                 return $reservations;
             } else {
