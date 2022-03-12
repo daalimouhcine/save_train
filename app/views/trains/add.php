@@ -9,7 +9,7 @@
                 <a class="nav-link" href="<?= URLROOT; ?>">
                   <span data-feather="home"></span>
                   <i class="fas fa-columns"></i>
-                  Dashboard <span class="sr-only">(current)</span>
+                  Dashboard
                 </a>
               </li>
               <li class="nav-item">
@@ -27,14 +27,14 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<?= URLROOT; ?>">
+                <a class="nav-link" href="<?= URLROOT; ?>/reservations/">
                   <span data-feather="users"></span>
                   <i class="fa fa-ticket"></i>
                   Reservations
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<?= URLROOT; ?>">
+                <a class="nav-link" href="<?= URLROOT; ?>/clients/">
                   <span data-feather="bar-chart-2"></span>
                   <i class="fa fa-user"></i>
                   Clients
