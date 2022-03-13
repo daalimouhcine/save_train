@@ -58,10 +58,9 @@
 
             $this->db->bind(':reservation_id', $reservation_id);
             
-            $trip = $this->db->single();
-            if($trip) {
-                // die(print_r($trip));
-                return $trip;
+            $reservation = $this->db->single();
+            if($reservation) {
+                return $reservation;
             } else {
                 return false;
             }
@@ -93,6 +92,28 @@
 
 
         public function cancelReservation($reservation_id) {
+            $reservation = $this->readOneReservation($reservation_id);
+
+            $trip_date = explode('-', $reservation->trip_date);
+            
+            if($trip_date[2] > date('d')) {
+                return false;
+            } else {
+                $currentTime = date_create(date("H:i"));
+                $tripTime = date_create($reservation->depart_hour);
+    
+                $difference = date_diff($currentTime, $tripTime);
+                
+                $minutes = $difference->days * 24 * 60;
+                $minutes += $difference->h * 60;
+                $minutes += $difference->i;
+
+                if($minutes < 60) {
+                    return false;
+                }
+            }
+
+
             $this->db->query('DELETE FROM reservations WHERE id = :reservation_id');
             $this->db->bind(':reservation_id', $reservation_id);
             
