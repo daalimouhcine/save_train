@@ -27,14 +27,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<?= URLROOT; ?>/reservations/">
-                  <span data-feather="users"></span>
-                  <i class="fa fa-ticket"></i>
-                  Reservations
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="<?= URLROOT; ?>clients/">
+                <a class="nav-link" href="<?= URLROOT; ?>/clients/">
                   <span data-feather="bar-chart-2"></span>
                   <i class="fa fa-user"></i>
                   Clients
