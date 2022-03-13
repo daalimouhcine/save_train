@@ -4,7 +4,7 @@
         public function __construct() {
             // Mack sure that the admin is logged in
             if(isset($_SESSION['admin_id'])) {
-                $this->clientModel = $this->model('Train');
+                $this->clientModel = $this->model('Client');
 
             } else {
                 redirect('home');
