@@ -8,7 +8,9 @@
 
         
         public function readTrips($condition = true) {
-            $this->db->query("SELECT trains.name, train_trips.* FROM train_trips INNER JOIN trains ON train_trips.train_id = trains.id WHERE available = :condition");
+            $this->db->query("SELECT * from reservations_seats
+                                WHERE available = :condition");
+
             $this->db->bind(':condition', $condition);
             $trips = $this->db->resultSet();
             $row = $this->db->rowCount();
@@ -22,7 +24,7 @@
 
 
         public function getOneTrip($trip_id) {
-            $this->db->query("SELECT trains.name, train_trips.* FROM train_trips INNER JOIN trains ON train_trips.train_id = trains.id WHERE train_trips.available = true AND train_trips.id = :trip_id");
+            $this->db->query("SELECT * FROM reservations_seats WHERE reservations_seats.available = true AND reservations_seats.id = :trip_id");
 
             $this->db->bind(':trip_id', $trip_id);
             $trip = $this->db->single();
