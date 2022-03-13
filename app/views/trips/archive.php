@@ -63,6 +63,7 @@
                   <th>Trip Date</th>
                   <th>Depart Hour</th>
                   <th>End Hour</th>
+                  <th>Seats</th>
                   <th>Price</th>
                   <th>Params</th>
                 </tr>
@@ -77,6 +78,7 @@
                     <td><?= $trip->trip_date; ?></td>
                     <td><?= $trip->depart_hour; ?></td>
                     <td><?= $trip->end_hour; ?></td>
+                    <td><?= $trip->available_seats; ?> / <?= $trip->seat_number; ?></td>
                     <td><?= $trip->price; ?> DH</td>
                     <td>
                       <a href="<?= URLROOT; ?>/trips/unarchiveTrip/<?= $trip->id; ?>" class="btn btn-outline-danger">Unarchive</a>
