@@ -63,6 +63,8 @@
                     'trip_date' => $trip->trip_date,
                     'depart_time' => $trip->depart_hour,
                     'end_time' => $trip->end_hour,
+                    'seat_number' => $trip->seat_number,
+                    'available_seats' => $trip->available_seats,
                     'price' => $trip->price,
                     'client_full_name' => $_POST['client_full_name'],
                     'client_email' => $_POST['client_email'],
@@ -83,17 +85,22 @@
 
                 // Make sure that errors are empty
                 if(empty($data['client_full_name_err']) && empty($data['client_email_err'])) {
-                    if($client_id != null) {
-                        if($this->reservationModel->addReservation($data, $client_id)) {
-                            flash('add_reservation_success', 'Reservation added successfully');
-                            pdfReservation($data);
-                            redirect('reservations/index');
+                    if($data['available_seats'] < $data['seat_number']) {
+                        if($client_id != null) {
+                            if($this->reservationModel->addReservation($data, $client_id)) {
+                                flash('add_reservation_success', 'Reservation added successfully');
+                                pdfReservation($data);
+                                redirect('reservations/index');
+                            }
+                        } else {
+                            if($this->reservationModel->addReservation($data)) {
+                                redirect('home');
+                                pdfReservation($data);
+                            }
                         }
                     } else {
-                        if($this->reservationModel->addReservation($data)) {
-                            redirect('home');
-                            pdfReservation($data);
-                        }
+                        $this->view('reservations/add', $data);
+                        flash('seats_full', 'All seats are been reserved', 'alert alert-danger');
                     }
 
                 } else {
@@ -114,6 +121,8 @@
                         'trip_date' => $trip->trip_date,
                         'depart_time' => $trip->depart_hour,
                         'end_time' => $trip->end_hour,
+                        'seat_number' => $trip->seat_number,
+                        'available_seats' => $trip->available_seats,
                         'price' => $trip->price,
                         'client_full_name' => $_SESSION['client_full_name'],
                         'client_email' => $_SESSION['client_email'],
@@ -132,6 +141,8 @@
                         'trip_date' => $trip->trip_date,
                         'depart_time' => $trip->depart_hour,
                         'end_time' => $trip->end_hour,
+                        'seat_number' => $trip->seat_number,
+                        'available_seats' => $trip->available_seats,
                         'price' => $trip->price,
                         'client_full_name' => '',
                         'client_email' => '',
@@ -149,6 +160,11 @@
             if($this->reservationModel->cancelReservation($trip_id)) {
                 flash('reservation_cancel_success', 'Reservation canceled successfully');
                 redirect('reservations');
+
+            } else {
+                flash('reservation_cancel_time_error', "Reservation can't be canceled", 'alert alert-danger');
+                redirect('reservations');
+
             }
         }
 
