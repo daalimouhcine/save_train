@@ -35,7 +35,7 @@
 		$pdf->Cell(90,10,$from,1,1,'C');
 		$pdf->Cell(90,10,"To :",1,0,'C');
 		$pdf->Cell(90,10,$to,1,1,'C');
-		$pdf->Cell(90,10,"Bus No :",1,0,'C');
+		$pdf->Cell(90,10,"Train No :",1,0,'C');
 		$pdf->Cell(90,10,$train_id,1,1,'C');
 		$pdf->Cell(90,10,"Depart Time :",1,0,'C');
 		$pdf->Cell(90,10,$depart_time,1,1,'C');
