@@ -141,10 +141,10 @@
                   <p class="m-1 mx-3">Start at: <?= $trip->depart_hour; ?></p>
                   <p class="m-1 mx-3">End: <?= $trip->end_hour; ?></p>
                 </div>
-                <p class="m-1">Number of Seats: <?= $trip->seat_number; ?></p>
+                <p class="m-1">Seats: <?= $trip->available_seats; ?> / <?= $trip->seat_number; ?></p>
                 <div class="d-flex align-items-center">
                   <p class='font-weight-bold my-0 mx-3 align-self-center'><?= $trip->price; ?> DH</p>
-                  <a href="<?= URLROOT; ?>/reservations/add/<?= $trip->id; ?><?= isset($_SESSION['client_id']) ? '/'.$_SESSION['client_id'] : ''; ?>" class="btn btn-success">Reserve</a>
+                  <a href="<?= URLROOT; ?>/reservations/add/<?= $trip->id; ?><?= isset($_SESSION['client_id']) ? '/'.$_SESSION['client_id'] : ''; ?>" class="btn btn-success <?= ($trip->available_seats >= $trip->seat_number) ? 'disabled' : '' ?>">Reserve</a>
                 </div>
               </div>
         
