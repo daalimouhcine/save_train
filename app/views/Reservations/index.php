@@ -5,6 +5,7 @@
           <div class="col-4 mx-auto text-center">
             <?php flash('no_reservations'); ?>
             <?php flash('reservation_cancel_success'); ?>
+            <?php flash('reservation_cancel_time_error'); ?>
             <?php flash('add_reservation_success'); ?>
           </div>
             
