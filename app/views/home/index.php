@@ -10,7 +10,7 @@
                 <a class="nav-link active" href="<?= URLROOT; ?>">
                   <span data-feather="home"></span>
                   <i class="fas fa-columns"></i>
-                  Dashboard <span class="sr-only">(current)</span>
+                  Dashboard
                 </a>
               </li>
               <li class="nav-item">
@@ -28,14 +28,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<?= URLROOT; ?>">
-                  <span data-feather="users"></span>
-                  <i class="fa fa-ticket"></i>
-                  Reservations
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="<?= URLROOT; ?>">
+                <a class="nav-link" href="<?= URLROOT; ?>/clients/">
                   <span data-feather="bar-chart-2"></span>
                   <i class="fa fa-user"></i>
                   Clients
@@ -90,9 +83,9 @@
               <div class="col-sm-4">
                 <div class="card">
                   <div class="card-body">
-                    <h5 class="card-title">Reservations</h5>
+                    <h5 class="card-title">Clients</h5>
                     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">See Reservations</a>
+                    <a href="<?= URLROOT; ?>/clients/" class="btn btn-primary">See Clients</a>
                   </div>
                 </div>
               </div>
