@@ -8,6 +8,9 @@
         
         <div class="col-md-12">
             <div class="card card-body bg-light mt-5">
+                <div class="mx-auto">
+                    <?php flash('seats_full'); ?>
+                </div>
                 <form method="POST">
                 <div class="d-flex align-items-center">
                     <div class="container col-5">
@@ -20,10 +23,10 @@
                                 <p class="m-1"> &rightarrow;To: <?= $data['end_in']; ?></p>
                             </div>
                                 <div class="d-flex">
-                                <p class="m-1">Start at: <?= $data['depart_time']; ?></p>
-                                <p> &HorizontalLine; </p>
-                                <p class="m-1">End: <?= $data['end_time']; ?></p>
+                                    <p class="m-1">Start at: <?= $data['depart_time']; ?></p>
+                                    <p class="m-1">End: <?= $data['end_time']; ?></p>
                                 </div>
+                                <p class="m-1">Seats: <?= $data['available_seats']; ?> / <?= $data['seat_number']; ?></p>
                             <div class="d-flex align-items-center">
                                 <p class='font-weight-bold my-0 mx-3 align-self-center'><?= $data['price']; ?> DH</p>
                             </div>
