@@ -27,13 +27,6 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<?= URLROOT; ?>/reservations/">
-                  <span data-feather="users"></span>
-                  <i class="fa fa-ticket"></i>
-                  Reservations
-                </a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link active" href="<?= URLROOT; ?>/clients/">
                   <span data-feather="bar-chart-2"></span>
                   <i class="fa fa-user"></i>
@@ -54,9 +47,11 @@
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
           <h1 class="h2">clients</h1>
-          <?php flash('no_clients'); ?>
-          <?php flash('client_delete_success'); ?>
-      </div>
+          <div class="mx-auto">
+            <?php flash('no_clients'); ?>
+            <?php flash('client_delete_success'); ?>
+          </div>
+        </div>
           <div class="table-responsive">
             <table class="table table-striped table-sm">
               <thead>
@@ -72,8 +67,8 @@
                     <td class="w-25 px-5"><?= $client->fullName; ?></td>
                     <td class="w-25"><?= $client->email; ?></td>
                     <td class="w-25">
-                      <a href="<?= URLROOT; ?>/trains/edit/<?= $client->id; ?>" class="btn btn-outline-success">Edit</a>
-                      <a href="<?= URLROOT; ?>/trains/delete/<?= $client->id; ?>" class="btn btn-outline-danger">Delete</a>
+                      <a href="<?= URLROOT; ?>/clients/edit/<?= $client->id; ?>" class="btn btn-outline-success disabled">Edit</a>
+                      <a href="<?= URLROOT; ?>/clients/delete/<?= $client->id; ?>" class="btn btn-outline-danger">Delete</a>
                     </td>
                   </tr>
                 <?php endforeach; ?>
