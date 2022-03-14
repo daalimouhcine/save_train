@@ -98,18 +98,18 @@
       <main role="main" class="w-100 text-white m-auto">
         <section class="my-5">
           <h1 class="text-center">Welcome <?= isset($_SESSION['client_id']) ? $_SESSION['client_full_name'] : "(❁´◡`❁)"; ?></h1>
-          <div class="col-9 card card-body text-body mt-5 mx-auto">
+          <div class="col-lg-9 col-md-11 card card-body text-body mt-5 mx-auto">
             <form method="POST" class="justify-content-center">
-              <div class="d-flex flex-row">
-                <div class=" input-group-lg col-4 d-block">
+              <div class="row">
+                <div class="col-md-4 d-block my-4">
                     <input type="text" name="from" class="rounded-0 form-control form-control-lg <?= (!empty($data['from_err'])) ? 'is-invalid' : ''; ?>" placeholder="From: *" value="<?= $data['from']; ?>" >
                     <span class="invalid-feedback"><?= $data['from_err']; ?></span>
                 </div>
-                <div class="input-group-lg col-4 d-block">
+                <div class="col-md-4 d-block my-4">
                     <input type="text" name="to" class="rounded-0 form-control form-control-lg <?= (!empty($data['to_err'])) ? 'is-invalid' : ''; ?>" placeholder="To: *" value="<?= $data['to']; ?>" >
                     <span class="invalid-feedback"><?= $data['to_err']; ?></span>
                 </div>
-                <div class=" input-group-lg col-4 d-block">
+                <div class="col-md-4 d-block my-4">
                     <input type="text" name="date" class="rounded-0 form-control form-control-lg <?= (!empty($data['date_err'])) ? 'is-invalid' : ''; ?>" placeholder="Date: (optional)" onfocus="(this.type = 'date')" onblur="(this.type = 'text')" value="<?= $data['date']; ?>" >
                     <span class="invalid-feedback"><?= $data['date_err']; ?></span>
                 </div>
@@ -120,14 +120,14 @@
         </section>
 
         <section class="trips container-fluid bg-white justify-content-center p-4 my-5">
-          <div class="col-4 mx-auto text-center">
+          <div class="col-lg-4 col-md-6 col-sm-8 mx-auto text-center">
             <?php flash('no_trips'); ?>
             <?php flash('read_trips_success'); ?>
           </div>
             
           <?php if(is_array($data['trips']) || is_object($data['trips'])) : ?>
             <?php foreach($data['trips'] as $trip) : ?>
-              <div class="col-6 bg-light d-flex flex-column text-dark card p-2 mx-auto my-5 align-items-center">
+              <div class="col-lg-6 col-md-8 col-sm-10 col-12 bg-light d-flex flex-column text-dark card p-2 mx-auto my-5 align-items-center">
                 <div class="d-flex justify-content-center <?= ($trip->available_seats >= $trip->seat_number) ? 'text-secondary' : '' ?>">
                   <p class="mx-2">Train Name: <em><?= $trip->name; ?></em></p>
                   <p class="mx-2">Date: <?= $trip->trip_date; ?></p>
