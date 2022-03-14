@@ -77,12 +77,12 @@
 
                 // VAlidate full name
                 if(empty($data['client_full_name'])) {
-                    $data['client_full_name_err'] = 'Pleas enter your full name';
+                    $data['client_full_name_err'] = 'Please enter your full name';
                 }
 
                 // VAlidate email
                 if(empty($data['client_email'])) {
-                    $data['client_email_err'] = 'Pleas enter your email';
+                    $data['client_email_err'] = 'Please enter your email';
                 }
 
 
