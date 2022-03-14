@@ -3,7 +3,10 @@
         
         public function __construct() {
             $this->homeModel = $this->model('HomeModel');
-           
+            $this->tripModel = $this->model('Trip');
+
+            // Check the date and time for trips
+            $this->tripModel->checkTripTime();
         }
         
         public function index() {
