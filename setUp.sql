@@ -37,7 +37,8 @@ CREATE TABLE IF NOT EXISTS train_trips(
     end_hour varchar(255) NOT NULL,
     price double NOT NULL,
     available bool DEFAULT(true),
-    FOREIGN KEY (train_id) REFERENCES trains(id)
+    FOREIGN KEY (train_id) REFERENCES trains(id) 
+    -- ON UPDATE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS reservations(
