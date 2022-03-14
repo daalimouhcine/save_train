@@ -25,8 +25,7 @@
                   <p class="m-1 mx-3">Start at: <?= $reservation->depart_hour; ?></p>
                   <p class="m-1 mx-3">End: <?= $reservation->end_hour; ?></p>
                 </div>
-                <p class="m-1">Number of Seats: <?= $reservation->seat_number; ?></p>
-                <div class="d-flex align-items-center">
+                <div class="d-flex align-items-center my-3">
                   <p class='font-weight-bold my-0 mx-3 align-self-center'><?= $reservation->price; ?> DH</p>
                   <a href="<?= URLROOT; ?>/reservations/ticket/<?= $reservation->id; ?>" class="btn btn-outline-success">Ticket</a>
                   <a href="<?= URLROOT; ?>/reservations/cancel/<?= $reservation->id; ?>" class="btn btn-outline-danger mx-3">Cancel</a>
