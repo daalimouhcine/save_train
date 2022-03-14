@@ -102,6 +102,13 @@
             }
         }
 
+
+        public function checkTripTime() {
+            // Archive the trip if the time is expire
+            $this->db->query('UPDATE train_trips SET available = false WHERE trip_date <= CAST(NOW() AS DATE) AND depart_hour <= CAST(NOW() AS TIME)');
+            $this->db->execute();
+        }
+
     }
 
 ?>
