@@ -2,7 +2,7 @@
 
       <main role="main" class="w-100 text-white m-auto">
         <section class="trips container-fluid bg-white justify-content-center p-4 my-5">
-          <div class="col-4 mx-auto text-center">
+          <div class="col-lg-4 col-md-6 col-sm-8 mx-auto text-center">
             <?php flash('no_reservations'); ?>
             <?php flash('reservation_cancel_success'); ?>
             <?php flash('reservation_cancel_time_error'); ?>
@@ -11,7 +11,7 @@
             
           <?php if(is_array($data) || is_object($data)) : ?>
             <?php foreach($data as $reservation) : ?>
-              <div class="col-6 bg-light d-flex flex-column text-dark card p-2 mx-auto my-5 align-items-center">
+              <div class="col-lg-6 col-md-8 col-sm-10 col-12 bg-light d-flex flex-column text-dark card p-2 mx-auto my-5 align-items-center">
                 <div class="d-flex justify-content-center">
                   <p class="mx-2">Train Name: <?= $reservation->name; ?></p>
                   <p class="mx-2">Date: <?= $reservation->trip_date; ?></p>
