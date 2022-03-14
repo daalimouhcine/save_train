@@ -128,23 +128,23 @@
           <?php if(is_array($data['trips']) || is_object($data['trips'])) : ?>
             <?php foreach($data['trips'] as $trip) : ?>
               <div class="col-lg-6 col-md-8 col-sm-10 col-12 bg-light d-flex flex-column text-dark card p-2 mx-auto my-5 align-items-center">
-                <div class="d-flex justify-content-center <?= ($trip->available_seats >= $trip->seat_number) ? 'text-secondary' : '' ?>">
+                <div class="d-flex flex-wrap justify-content-center <?= ($trip->available_seats >= $trip->seat_number) ? 'text-secondary' : '' ?>">
                   <p class="mx-2">Train Name: <em><?= $trip->name; ?></em></p>
                   <p class="mx-2">Date: <?= $trip->trip_date; ?></p>
                 </div>
-                <div class="d-flex <?= ($trip->available_seats >= $trip->seat_number) ? 'text-secondary' : '' ?>">
+                <div class="d-flex flex-wrap <?= ($trip->available_seats >= $trip->seat_number) ? 'text-secondary' : '' ?>">
                   <p class="m-1">From: <?= $trip->start_from; ?> &rightarrow;</p>
                   <p class="m-1"><?= !empty($trip->distance) ? $trip->distance.'Km' : ''; ?></p>
                   <p class="m-1"> &rightarrow;To: <?= $trip->end_in; ?></p>
                 </div>
-                <div class="d-flex <?= ($trip->available_seats >= $trip->seat_number) ? 'text-secondary' : '' ?>">
+                <div class="d-flex flex-wrap <?= ($trip->available_seats >= $trip->seat_number) ? 'text-secondary' : '' ?>">
                   <p class="m-1 mx-3">Start at: <?= $trip->depart_hour; ?></p>
                   <p class="m-1 mx-3">End: <?= $trip->end_hour; ?></p>
                 </div>
                 <p class="m-1 <?= ($trip->available_seats >= $trip->seat_number) ? 'text-secondary' : '' ?>">Seats: <?= $trip->available_seats; ?> / <?= $trip->seat_number; ?></p>
-                <div class="d-flex align-items-center <?= ($trip->available_seats >= $trip->seat_number) ? 'text-secondary' : '' ?>">
+                <div class="d-flex flex-wrap align-items-center <?= ($trip->available_seats >= $trip->seat_number) ? 'text-secondary' : '' ?>">
                   <p class='font-weight-bold my-0 mx-3 align-self-center'><?= $trip->price; ?> DH</p>
-                  <a href="<?= URLROOT; ?>/reservations/add/<?= $trip->id; ?><?= isset($_SESSION['client_id']) ? '/'.$_SESSION['client_id'] : ''; ?>" class="btn btn-success <?= ($trip->available_seats >= $trip->seat_number) ? 'disabled' : '' ?>">Reserve</a>
+                  <a href="<?= URLROOT; ?>/reservations/add/<?= $trip->id; ?><?= isset($_SESSION['client_id']) ? '/'.$_SESSION['client_id'] : ''; ?>" class="btn btn-success my-1 <?= ($trip->available_seats >= $trip->seat_number) ? 'disabled' : '' ?>">Reserve</a>
                 </div>
               </div>
         
