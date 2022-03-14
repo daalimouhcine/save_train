@@ -6,7 +6,7 @@
             $this->reservationModel = $this->model('Reservation');
             $this->userModel = $this->model('User');
             $this->tripModel = $this->model('Trip');
-            if(!isset($_SESSION['client_id'])) {
+            if(isset($_SESSION['admin_id'])) {
                 redirect('');
             }
         }
