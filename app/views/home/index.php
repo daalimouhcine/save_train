@@ -56,8 +56,8 @@
                   <div class="card-body">
                     <h5 class="card-title">Trains</h5>
                     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="<?= URLROOT; ?>/trains/" class="btn btn-primary">See Trains</a>
-                    <a href="<?= URLROOT; ?>/trains/add" class="btn btn-success">Add Train</a>
+                    <a href="<?= URLROOT; ?>/trains/" class="btn btn-primary my-1">See Trains</a>
+                    <a href="<?= URLROOT; ?>/trains/add" class="btn btn-success my-1">Add Train</a>
                   </div>
                 </div>
               </div>
@@ -66,8 +66,8 @@
                   <div class="card-body">
                     <h5 class="card-title">Train Trips available</h5>
                     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="<?= URLROOT; ?>/trips" class="btn btn-primary">See Trips available</a>
-                    <a href="<?= URLROOT; ?>/trips/add" class="btn btn-success">Add Train Trip</a>
+                    <a href="<?= URLROOT; ?>/trips" class="btn btn-primary my-1">See Trips available</a>
+                    <a href="<?= URLROOT; ?>/trips/add" class="btn btn-success my-1">Add Train Trip</a>
                   </div>
                 </div>
               </div>
