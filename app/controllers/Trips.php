@@ -8,7 +8,7 @@
                 $this->trainModel = $this->model('Train');
 
             } else {
-                redirect('home');
+                redirect('');
             }
         }
 

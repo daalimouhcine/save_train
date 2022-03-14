@@ -7,7 +7,7 @@
                 $this->clientModel = $this->model('Client');
 
             } else {
-                redirect('home');
+                redirect('');
             }
         }
 
