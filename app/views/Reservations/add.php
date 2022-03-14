@@ -1,6 +1,6 @@
 <?php require_once APPROOT . '/views/inc/header.php';?>
 
-    <main role="main" class="col-md-9 mx-auto col-lg-10 px-md-4">
+    <main role="main" class="col-md-12 mx-auto col-lg-10 px-md-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <a href="<?= URLROOT; ?>" type="button" class="btn btn-sm btn-outline-secondary">&leftarrow; Search Trips</a>
         <h1 class="h2 mx-auto text-white">Reserve Trip</h1>
@@ -12,17 +12,17 @@
                     <?php flash('seats_full'); ?>
                 </div>
                 <form method="POST">
-                <div class="d-flex align-items-center">
-                    <div class="container col-5">
+                <div class="d-flex flex-wrap align-items-center">
+                    <div class="container col-lg-5 col-md-8">
                         <div class=" bg-light d-flex flex-column text-dark card p-2 mx-auto my-5 align-items-center">
                             <p class="m-1">Train Name: <?= $data['train_name']; ?></p>
                             <p class="text-center">Date: <?= $data['trip_date']; ?></p>
-                            <div class="d-flex">
+                            <div class="d-flex flex-wrap">
                                 <p class="m-1">From: <?= $data['start_from']; ?> &rightarrow;</p>
                                 <p class="m-1"><?= !empty($data['distance']) ? $data['distance'].'Km' : ''; ?></p>
                                 <p class="m-1"> &rightarrow;To: <?= $data['end_in']; ?></p>
                             </div>
-                                <div class="d-flex">
+                                <div class="d-flex flex-wrap">
                                     <p class="m-1">Start at: <?= $data['depart_time']; ?></p>
                                     <p class="m-1">End: <?= $data['end_time']; ?></p>
                                 </div>
@@ -32,7 +32,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="container col-5">
+                    <div class="col-lg-5 col-md-7 col-sm-9 mx-auto">
                         <?php if(isset($_SESSION['client_id'])) : ?>
                             <div class="form-group">
                                 <label for="client_full_name">Full Name: </label>
@@ -60,7 +60,7 @@
                 </div>
 
                     <div class="row">
-                        <div class="col-4 mx-auto">
+                        <div class="col-md-4 col-sm-7 mx-auto">
                             <input type="submit" class="btn btn-success btn-block" value="Confirme">
                         </div>
                     </div>
