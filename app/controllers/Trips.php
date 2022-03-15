@@ -37,7 +37,7 @@
                 // Init data
                 $data = [
                     'trains_available' => $trains,
-                    'train_name' => $row->name,
+                    'train_name' => empty($row->name) ? '' : $row->name,
                     'train_id' => $_POST['train'],
                     'start_from' => $_POST['start_from'],
                     'end_in' => $_POST['end_in'],
@@ -85,12 +85,15 @@
 
                 } else {
                     $trip_date = explode('-', $data['trip_date']);
+                    
                     if($trip_date[0] < date('Y')) {
                         $data['trip_date_err'] = "You can't enter this Date chose another one";
                     } elseif($trip_date[1] < date('m')) {
                         $data['trip_date_err'] = "You can't enter this Date chose another one";
                     } elseif($trip_date[2] < date('d')) {
-                        $data['trip_date_err'] = "You can't enter this Date chose another one";
+                        if($trip_date[1] < date('m')) {
+                            $data['trip_date_err'] = "You can't enter this Date chose another one";
+                        }
                     }
                 }
 
