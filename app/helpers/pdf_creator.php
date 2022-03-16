@@ -56,5 +56,6 @@
 		$pdf->Write(5,'Authorized Signature');
 
         $fill = "$data[client_full_name]_train_reservation".'.pdf';
-		$pdf->Output($fill, 'D');	
+		$pdf->Output($fill, 'D');
+			
     }
