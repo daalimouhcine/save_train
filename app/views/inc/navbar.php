@@ -21,7 +21,7 @@
             <?php 
               $basename = explode('/',$_SERVER['REQUEST_URI']);  
             ?>
-            <a class="nav-link  <?= ($basename[2] == '' || $basename[2] == 'index') ? "active" : ''; ?>" href="<?= URLROOT; ?>">Home</a>
+            <a class="nav-link  <?= $basename[2] == '' ? "active" : ''; ?>" href="<?= URLROOT; ?>">Home</a>
             <?php if(isset($_SESSION['client_id'])) : ?>
               <a class="nav-link <?= $basename[3] == 'reservations' ? "active" : ''; ?>" href="<?= URLROOT; ?>/reservations/">Reservations</a>
               <a class="nav-link <?=$basename[3] == 'logout' ? "active" : ''; ?>" href="<?= URLROOT; ?>/users/logout">Sign out</a>
