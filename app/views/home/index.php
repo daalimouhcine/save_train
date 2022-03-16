@@ -119,7 +119,7 @@
           </div>  
         </section>
 
-        <section class="trips container-fluid bg-white justify-content-center p-4 my-5">
+        <section class="<?= !empty($data['trips']) ? 'trips container-fluid bg-white justify-content-center p-4 my-5' : ''; ?>">
           <div class="col-lg-4 col-md-6 col-sm-8 mx-auto text-center">
             <?php flash('no_trips'); ?>
             <?php flash('read_trips_success'); ?>
