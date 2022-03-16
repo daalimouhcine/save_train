@@ -191,7 +191,7 @@
                 $_SESSION['client_full_name'] = $user->fullName;
             }
 
-            redirect('pages/index');
+            redirect('');
         }
 
 
