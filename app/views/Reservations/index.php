@@ -1,7 +1,7 @@
 <?php require_once APPROOT . '/views/inc/header.php';?>
 
       <main role="main" class="w-100 text-white m-auto">
-        <section class="trips container-fluid bg-white justify-content-center p-4 my-5">
+      <section class="<?= !empty($data) ? 'trips container-fluid bg-white justify-content-center p-4 my-5' : ''; ?>">
           <div class="col-lg-4 col-md-6 col-sm-8 mx-auto text-center">
             <?php flash('no_reservations'); ?>
             <?php flash('reservation_cancel_success'); ?>
