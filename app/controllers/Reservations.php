@@ -93,12 +93,12 @@
                             if($this->reservationModel->addReservation($data, $client_id)) {
                                 flash('add_reservation_success', 'Reservation added successfully');
                                 pdfReservation($data);
-                                redirect('reservations/index');
+                                redirect('reservations/');
                             }
                         } else {
                             if($this->reservationModel->addReservation($data)) {
                                 pdfReservation($data);
-                                redirect('home');
+                                redirect('');
                             }
                         }
                     } else {
