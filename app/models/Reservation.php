@@ -96,7 +96,7 @@
 
             $trip_date = explode('-', $reservation->trip_date);
             
-            if($trip_date[2] > date('d')) {
+            if($trip_date[2] < date('d')) {
                 return false;
             } else {
                 $currentTime = date_create(date("H:i"));
