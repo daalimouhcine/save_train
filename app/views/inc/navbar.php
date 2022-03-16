@@ -18,14 +18,16 @@
         <div class="inner">
           <h3 class="masthead-brand">Save Train</h3>
           <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link active" href="<?= URLROOT; ?>">Home</a>
+            <?php 
+              $basename = explode('/',$_SERVER['REQUEST_URI']);  
+            ?>
+            <a class="nav-link  <?= ($basename[2] == '' || $basename[2] == 'index') ? "active" : ''; ?>" href="<?= URLROOT; ?>">Home</a>
             <?php if(isset($_SESSION['client_id'])) : ?>
-              <a class="nav-link" href="<?= URLROOT; ?>/reservations/">Reservations</a>
-              <a class="nav-link" href="<?= URLROOT; ?>/users/logout">Sign out</a>
-
+              <a class="nav-link <?= $basename[3] == 'reservations' ? "active" : ''; ?>" href="<?= URLROOT; ?>/reservations/">Reservations</a>
+              <a class="nav-link <?=$basename[3] == 'logout' ? "active" : ''; ?>" href="<?= URLROOT; ?>/users/logout">Sign out</a>
             <?php else : ?>
-              <a class="nav-link" href="<?= URLROOT; ?>/users/register">Register</a>
-              <a class="nav-link" href="<?= URLROOT; ?>/users/login">Login</a>
+              <a class="nav-link <?= $basename[3] == 'register' ? "active" : ''; ?>" href="<?= URLROOT; ?>/users/register">Register</a>
+              <a class="nav-link <?= $basename[3] == 'login' ? "active" : ''; ?>" href="<?= URLROOT; ?>/users/login">Login</a>
               
             <?php endif; ?>
           </nav>
