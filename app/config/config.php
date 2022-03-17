@@ -11,3 +11,4 @@
     define('URLROOT', 'http://localhost/save_train_brief-5');
     // Site Name
     define('SITENAME', 'saveTrain'); 
+?>
