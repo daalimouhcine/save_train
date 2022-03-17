@@ -12,8 +12,8 @@ a:hover {
   color: #333333;
   text-shadow: none;
   /* Prevent inheritance from `body` */
-  background-color: #fff;
-  border: .05rem solid #fff;
+  background-color: #ffffff;
+  border: .05rem solid #ffffff;
 }
 
 /*
