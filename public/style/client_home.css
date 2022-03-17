@@ -22,21 +22,17 @@ a:hover {
 /*
  * Base structure
  */
-html {
-  height: 100%;
-}
-
-html body {
+body {
   height: 100%;
   background-color: #333;
 }
 
-html body .inner {
+body .inner {
   color: #fff;
   text-align: center;
 }
 
-html body .inner h3 {
+body .inner h3 {
   margin: 10px 0;
 }
 
