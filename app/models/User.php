@@ -52,7 +52,6 @@
             $this->db->query('SELECT * FROM ' . $table . ' WHERE email = :email');
             // Bind value
             $this->db->bind(':email', $email);
-
             $row = $this->db->single();
 
             // Check row
