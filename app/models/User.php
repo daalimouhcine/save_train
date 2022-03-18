@@ -10,6 +10,7 @@
 
         // Login User
         public function login($email, $password, $table) {
+        
             $this->db->query('SELECT * FROM ' . $table . ' WHERE email = :email');
             $this->db->bind(':email', $email);
 
