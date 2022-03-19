@@ -1,5 +1,4 @@
 <?php
-
     
     // Create pdf with the Reservation info
     function pdfReservation($data) {
