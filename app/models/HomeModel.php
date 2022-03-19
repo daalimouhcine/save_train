@@ -31,15 +31,14 @@
                     $rowCount = $this->db->rowCount();
 
 
-                        // // Get number of reservations
-                        // $seats = [];
-                        // foreach($trips as $trip) {
-                        //     $this->db->query('SELECT count(*) FROM reservations WHERE id_trip = :reservation');
-                        //     $this->db->bind(':reservation', $trip->id_trip);
-                        //     $seats = $this->db->execute();
-                        // }
-                        // die(print_r($seats));
-
+                    // // Get number of reservations
+                    // $seats = [];
+                    // foreach($trips as $trip) {
+                    //     $this->db->query('SELECT count(*) FROM reservations WHERE id_trip = :reservation');
+                    //     $this->db->bind(':reservation', $trip->id_trip);
+                    //     $seats = $this->db->execute();
+                    // }
+                    // die(print_r($seats));
 
                     if($rowCount <= 0) {
                         return false;
