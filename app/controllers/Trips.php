@@ -312,7 +312,5 @@
                 redirect('trips/archived');
             }
         }
-
     }
-
 ?>
