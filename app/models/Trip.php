@@ -60,6 +60,7 @@
 
         public function edit($data, $trip_id) {
             $this->db->query('UPDATE train_trips SET train_id = :train_id, start_from = :start_from, end_in = :end_in, distance = :distance, trip_date = :trip_date, depart_hour = :depart_hour, end_hour = :end_hour, price = :price WHERE id = :id');
+           
             // Bind values
             $this->db->bind(":train_id", $data['train_id']);
             $this->db->bind(":start_from", $data['start_from']);
@@ -70,6 +71,7 @@
             $this->db->bind(":end_hour", $data['end_hour']);
             $this->db->bind(":price", $data['price']);
             $this->db->bind(":id", $trip_id);
+
             // Execute
             if($this->db->execute()) {
                 return true;
