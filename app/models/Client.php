@@ -23,11 +23,13 @@
         public function deleteClient($clientId) {
             $this->db->query('DELETE FROM clients WHERE id = :id');
             $this->db->bind(':id', $clientId);
+
             // if($this->db->execute()) {
             //     return true;
             // } else {
             //     return false;
             // }
+            
             try{
                 $this->db->execute();
                 return true;
