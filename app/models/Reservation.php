@@ -90,7 +90,6 @@
         }
 
 
-
         public function cancelReservation($reservation_id) {
             $reservation = $this->readOneReservation($reservation_id);
 
