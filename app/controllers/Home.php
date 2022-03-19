@@ -86,9 +86,7 @@
 
                 $this->view('home/index', $data);
             }
-
         }
-
     }
 
 ?>
