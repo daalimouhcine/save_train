@@ -35,7 +35,6 @@
                 redirect("clients/");
             }
         }
-
     }
 
 ?>
