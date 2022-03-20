@@ -95,7 +95,6 @@
                 // Load view
                 $this->view('users/register', $data);
             }
-            
         }
 
 
@@ -211,7 +210,6 @@
 
             redirect('users/login');
         }
-
         
         public function isLoggedIn() {
             if(isset($_SESSION['user_id'])) {
