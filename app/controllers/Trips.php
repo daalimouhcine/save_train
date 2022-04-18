@@ -85,16 +85,14 @@
 
                 } else {
                     $trip_date = explode('-', $data['trip_date']);
-                    
                     if($trip_date[0] < date('Y')) {
                         $data['trip_date_err'] = "You can't enter this Date chose another one";
                     } elseif($trip_date[1] < date('m')) {
                         $data['trip_date_err'] = "You can't enter this Date chose another one";
                     } elseif($trip_date[2] < date('d')) {
-                        if($trip_date[1] < date('m')) {
-                            $data['trip_date_err'] = "You can't enter this Date chose another one";
-                        }
+                        $data['trip_date_err'] = "You can't enter this Date chose another one";
                     }
+
                 }
 
                 // Validate depart_hour
