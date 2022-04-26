@@ -35,7 +35,7 @@
                 ];
 
                 // Validate name
-                if(empty($data['full_name'])) {
+                if(empty(trim($data['full_name']))) {
                     $data['full_name_err'] = 'Pleas enter full name';
                 }
 
