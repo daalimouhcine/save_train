@@ -109,7 +109,6 @@
 
                 // echo $minutes;
                 if($minutes <= 60) {
-    
                     return false;
                 }
             }
