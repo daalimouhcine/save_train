@@ -107,7 +107,7 @@
                 $minutes += $difference->h * 60;
                 $minutes += $difference->i;
 
-                if($minutes < 60) {
+                if($minutes >= 60) {
                     return false;
                 }
             }

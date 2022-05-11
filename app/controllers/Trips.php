@@ -159,6 +159,7 @@
         public function edit($trip_id) {
             // Get the trains
             $trains = $this->trainModel->readTrains();
+            date_default_timezone_set('Africa/casablanca');
             // Check for POST request
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
