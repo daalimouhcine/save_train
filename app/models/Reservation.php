@@ -107,11 +107,12 @@
                 $minutes += $difference->h * 60;
                 $minutes += $difference->i;
 
-                if($minutes >= 60) {
+                // echo $minutes;
+                if($minutes <= 60) {
+    
                     return false;
                 }
             }
-
 
             $this->db->query('DELETE FROM reservations WHERE id = :reservation_id');
             $this->db->bind(':reservation_id', $reservation_id);
