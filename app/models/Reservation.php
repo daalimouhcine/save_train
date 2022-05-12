@@ -92,6 +92,7 @@
 
         public function cancelReservation($reservation_id) {
             $reservation = $this->readOneReservation($reservation_id);
+            date_default_timezone_set('Africa/casablanca');
 
             $trip_date = explode('-', $reservation->trip_date);
             
