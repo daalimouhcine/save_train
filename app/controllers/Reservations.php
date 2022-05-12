@@ -50,7 +50,8 @@
         public function add($trip_id, $client_id = null) {
             // Get trip and client information's
             $trip = $this->tripModel->getOneTrip($trip_id);
-
+            date_default_timezone_set('Africa/casablanca');
+            
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Sanitize POST
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
