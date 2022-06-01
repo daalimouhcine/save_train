@@ -1,6 +1,6 @@
 # BOOKING TRAIN
 
-<div style="display=flex;flex-diretion:row;justify-content: center; align-items: center" ><img src="[public/assets/home_thumb.svg](https://thumbs.dreamstime.com/b/book-train-ticket-online-concept-idea-travel-tourism-planning-trip-online-buy-ticket-train-app-vector-167141646.jpg)"></img></div>
+<div style="display=flex;flex-diretion:row;justify-content: center; align-items: center" ><img src="https://thumbs.dreamstime.com/b/book-train-ticket-online-concept-idea-travel-tourism-planning-trip-online-buy-ticket-train-app-vector-167141646.jpg"></img></div>
 
 <div class="sc-7lcum6-0 edCusw"><h2 class="ekeyz-0 dPTSJD">Project context</h2><div><div><p class="ekeyz-0 jasXoh">Une compagnie locale qui gére le transport des trains à besoin d'une application pour la gestion des réservation en respectant les consignes suivantes :</p>
 <p class="ekeyz-0 jasXoh">​</p>
